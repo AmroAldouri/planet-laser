@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+  <defs>
+    <linearGradient id="p1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#110a12"/><stop offset="1" stop-color="#050306"/></linearGradient>
+    <filter id="pg" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="800" height="800" fill="url(#p1)"/>
+  <!-- party room vibe -->
+  <rect x="70" y="160" width="660" height="480" rx="20" fill="#1a1420"/>
+  <!-- table / cake area -->
+  <rect x="220" y="420" width="360" height="28" rx="6" fill="#2a2233"/>
+  <!-- balloons neon green accents -->
+  <circle cx="180" cy="210" r="26" fill="#00FF9F" opacity=".35"/>
+  <circle cx="620" cy="205" r="22" fill="#39FF14" opacity=".3"/>
+  <!-- kids celebrating -->
+  <g transform="translate(280,340)"><circle cx="0" cy="-24" r="9" fill="#252535"/><rect x="-7" y="-14" width="14" height="26" rx="3" fill="#252535"/><rect x="-6" y="-11" width="12" height="12" rx="1" fill="#00FF9F"/></g>
+  <g transform="translate(400,345)"><circle cx="0" cy="-22" r="8" fill="#252535"/><rect x="-6" y="-13" width="12" height="24" rx="3" fill="#252535"/><rect x="-5" y="-10" width="10" height="11" rx="1" fill="#39FF14"/></g>
+  <g transform="translate(520,338)"><circle cx="0" cy="-25" r="9" fill="#252535"/><rect x="-7" y="-14" width="14" height="26" rx="3" fill="#252535"/><rect x="-6" y="-11" width="12" height="12" rx="1" fill="#00FF9F"/></g>
+  <!-- cake with candles -->
+  <rect x="355" y="405" width="90" height="22" rx="3" fill="#3a2a48"/>
+  <rect x="375" y="390" width="50" height="18" rx="2" fill="#f4d9a8"/>
+  <g fill="#00FF9F"><rect x="368" y="378" width="3" height="12"/><rect x="388" y="376" width="3" height="14"/><rect x="408" y="378" width="3" height="12"/></g>
+  <!-- neon party lights -->
+  <g filter="url(#pg)">
+    <circle cx="140" cy="280" r="8" fill="#39FF14" opacity=".9"><animate attributeName="opacity" values=".4;1;.4" dur="1.4s" repeatCount="indef"/></circle>
+    <circle cx="660" cy="275" r="7" fill="#00FF9F" opacity=".85"><animate attributeName="opacity" values=".5;1;.5" dur="1.1s" repeatCount="indef"/></circle>
+  </g>
+  <rect width="800" height="800" fill="#000" opacity=".08"/>
+</svg>

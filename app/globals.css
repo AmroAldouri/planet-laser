@@ -1,0 +1,435 @@
+@import "tailwindcss";
+
+@theme {
+  --color-space-950: #0A0A0A;
+  --color-space-900: #0F0F12;
+  --color-space-800: #141428;
+  --color-space-700: #1e1e3a;
+  /* Green Neon Cyber Theme - Planet Laser */
+  --color-neon-green: #00ff9f;
+  --color-neon-lime: #39ff14;
+  --color-neon-soft: #7cffcb;
+  --color-neon-cyan: #00f0ff;
+  --color-neon-magenta: #ff2bd6;
+  --color-neon-purple: #a855f7;
+  --color-neon-blue: #3b82f6;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-space-950 text-white antialiased;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 255, 159, 0.085), transparent),
+      radial-gradient(ellipse 60% 40% at 100% 0%, rgba(57, 255, 20, 0.05), transparent),
+      radial-gradient(ellipse 50% 30% at 0% 100%, rgba(0, 240, 255, 0.04), transparent);
+  }
+
+  ::selection {
+    @apply bg-neon-green/40 text-space-950;
+  }
+}
+
+@layer utilities {
+  /* Green Neon Glows (Primary Theme) */
+  .text-glow-green {
+    text-shadow:
+      0 0 8px rgba(0, 255, 159, 0.9),
+      0 0 18px rgba(0, 255, 159, 0.55),
+      0 0 36px rgba(57, 255, 20, 0.35);
+  }
+
+  .text-glow-lime {
+    text-shadow:
+      0 0 7px rgba(57, 255, 20, 0.95),
+      0 0 16px rgba(57, 255, 20, 0.6);
+  }
+
+  .box-glow-green {
+    box-shadow:
+      0 0 16px rgba(0, 255, 159, 0.35),
+      0 0 32px rgba(0, 255, 159, 0.18),
+      0 0 56px rgba(57, 255, 20, 0.1);
+  }
+
+  .neon-border-green {
+    border-color: rgba(0, 255, 159, 0.45);
+    box-shadow: 0 0 0 1px rgba(0, 255, 159, 0.2) inset;
+  }
+
+  /* Legacy support for existing accents (slightly toned to fit green) */
+  .text-glow-cyan {
+    text-shadow:
+      0 0 10px rgba(0, 255, 159, 0.7),
+      0 0 26px rgba(0, 255, 159, 0.35);
+  }
+
+  .box-glow-cyan {
+    box-shadow:
+      0 0 18px rgba(0, 255, 159, 0.28),
+      0 0 38px rgba(0, 255, 159, 0.12);
+  }
+
+  .text-glow-magenta {
+    text-shadow:
+      0 0 9px rgba(255, 43, 214, 0.6),
+      0 0 22px rgba(255, 43, 214, 0.3);
+  }
+
+  .gradient-border {
+    position: relative;
+    background: linear-gradient(var(--color-space-900), var(--color-space-900)) padding-box,
+      linear-gradient(135deg, var(--color-neon-green), var(--color-neon-lime), var(--color-neon-cyan)) border-box;
+    border: 1px solid transparent;
+  }
+
+  /* Futuristic headings */
+  .heading-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.04em;
+    font-feature-settings: "tnum", "ss01";
+  }
+
+  /* Laser beam line effect */
+  .laser-line {
+    position: relative;
+    overflow: hidden;
+  }
+  .laser-line::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 255, 159, 0.85),
+      transparent
+    );
+    transform: translateX(-100%);
+    animation: laser-sweep 1.8s linear infinite;
+    opacity: 0.6;
+  }
+  @keyframes laser-sweep {
+    100% { transform: translateX(200%); }
+  }
+
+  /* Subtle floating animation */
+  .float-slow {
+    animation: float-slow 6s ease-in-out infinite;
+  }
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* Strong button neon hover scale */
+  .neon-btn {
+    transition: transform 0.2s cubic-bezier(0.23, 1.0, 0.32, 1), 
+                box-shadow 0.2s cubic-bezier(0.23, 1.0, 0.32, 1),
+                background 0.2s ease;
+  }
+  .neon-btn:hover {
+    transform: scale(1.03) translateY(-1px);
+    box-shadow: 0 0 0 1px rgba(0,255,159,0.5), 0 10px 30px -10px rgba(0,255,159,0.4);
+  }
+  .neon-btn:active {
+    transform: scale(0.985);
+  }
+
+  /* Staggered section fade helper (used with framer) */
+  .section-fade {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s cubic-bezier(0.23,1,0.32,1), transform 0.7s cubic-bezier(0.23,1,0.32,1);
+  }
+  .section-fade.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Gallery neon frame */
+  .neon-frame {
+    position: relative;
+    border: 1px solid rgba(0,255,159,0.25);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.4s cubic-bezier(0.23,1,0.32,1);
+  }
+  .neon-frame:hover {
+    border-color: rgba(0,255,159,0.7);
+    box-shadow: 0 0 0 1px rgba(0,255,159,0.2);
+    transform: scale(1.015);
+  }
+  .neon-frame img, .neon-frame svg {
+    transition: transform 0.7s cubic-bezier(0.23,1,0.32,1);
+  }
+  .neon-frame:hover img, .neon-frame:hover svg {
+    transform: scale(1.08);
+  }
+
+  /* ========== CYBER-NEON GREEN POLISH (Planet Laser) ========== */
+
+  /* Ultra strong neon headline glow + soft pulse */
+  .text-glow-green {
+    text-shadow:
+      0 0 6px rgba(0, 255, 159, 0.95),
+      0 0 14px rgba(0, 255, 159, 0.75),
+      0 0 28px rgba(57, 255, 20, 0.55),
+      0 0 48px rgba(0, 255, 159, 0.35);
+    animation: neon-pulse 3.2s ease-in-out infinite;
+  }
+  .text-glow-green-static {
+    text-shadow:
+      0 0 6px rgba(0, 255, 159, 0.95),
+      0 0 14px rgba(0, 255, 159, 0.75),
+      0 0 28px rgba(57, 255, 20, 0.55);
+  }
+
+  @keyframes neon-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.92; }
+  }
+
+  /* Powerful neon button with intense hover glow + scale */
+  .neon-btn {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.18s cubic-bezier(0.23, 1.0, 0.32, 1),
+                box-shadow 0.18s cubic-bezier(0.23, 1.0, 0.32, 1),
+                background 0.18s ease;
+    box-shadow: 0 0 0 1px rgba(0,255,159,0.35);
+  }
+  .neon-btn:hover {
+    transform: scale(1.035) translateY(-1px);
+    box-shadow: 0 0 0 1px rgba(0,255,159,0.65),
+                0 0 22px rgba(0,255,159,0.65),
+                0 10px 36px -12px rgba(0,255,159,0.55);
+  }
+  .neon-btn:active {
+    transform: scale(0.985);
+  }
+  /* Green energy sweep on primary buttons */
+  .neon-btn::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -150%;
+    width: 40%;
+    height: 200%;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(255,255,255,0.35),
+      transparent
+    );
+    transition: left 0.6s;
+  }
+  .neon-btn:hover::after {
+    left: 250%;
+  }
+
+  /* Navigation link cyber glow + slide effect */
+  .nav-link {
+    position: relative;
+    transition: color 0.2s ease, transform 0.2s cubic-bezier(0.23,1,0.32,1);
+  }
+  .nav-link:hover {
+    color: #00ff9f;
+    transform: translateY(-1px);
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: linear-gradient(to right, #00ff9f, #39ff14);
+    transition: width 0.25s cubic-bezier(0.23,1,0.32,1);
+  }
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* Hero neon sign background breathing (makes the glowing PLANET LASER sign in the photo pulse) */
+  .hero-bg-pulse {
+    animation: hero-neon-breath 5.8s ease-in-out infinite;
+    will-change: filter;
+  }
+  @keyframes hero-neon-breath {
+    0%, 100% { filter: brightness(1.0) saturate(1.04); }
+    50% { filter: brightness(1.09) saturate(1.22); }
+  }
+
+  /* Extra strong hover lift + glow for hero primary CTA */
+  .hero-cta {
+    box-shadow: 0 0 0 1px rgba(0,255,159,0.4), 0 8px 30px -8px rgba(0,255,159,0.5);
+  }
+  .hero-cta:hover {
+    box-shadow: 0 0 0 1px rgba(0,255,159,0.75),
+                0 0 26px rgba(0,255,159,0.7),
+                0 12px 40px -10px rgba(0,255,159,0.6);
+  }
+
+  /* Floating laser beam / scan line utilities */
+  .laser-beam {
+    position: absolute;
+    background: linear-gradient(
+      to right,
+      transparent,
+      #00ff9f,
+      #39ff14,
+      #00ff9f,
+      transparent
+    );
+    box-shadow: 0 0 12px rgba(0,255,159,0.9), 0 0 28px rgba(57,255,20,0.6);
+    pointer-events: none;
+    opacity: 0.75;
+  }
+
+  .scanline-horizontal {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(0,255,159,0.9),
+      rgba(57,255,20,0.95),
+      transparent
+    );
+    box-shadow: 0 0 10px rgba(0,255,159,0.8);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Section reveal base (pairs with framer whileInView) */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  .reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Cyber grid overlay (subtle) */
+  .cyber-grid {
+    background-image: 
+      linear-gradient(rgba(0,255,159,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,255,159,0.035) 1px, transparent 1px);
+    background-size: 42px 42px;
+  }
+
+  /* ========== EXTRA HERO ANIMATIONS (high performance) ========== */
+
+  /* Stronger, more dramatic continuous neon pulse specifically for the hero headline */
+  .hero-headline {
+    text-shadow:
+      0 0 6px rgba(0, 255, 159, 0.95),
+      0 0 14px rgba(0, 255, 159, 0.85),
+      0 0 26px rgba(57, 255, 20, 0.65),
+      0 0 44px rgba(0, 255, 159, 0.45),
+      0 0 72px rgba(57, 255, 20, 0.25);
+    animation: hero-headline-neon 2.8s ease-in-out infinite;
+    will-change: text-shadow;
+  }
+
+  @keyframes hero-headline-neon {
+    0%, 100% {
+      text-shadow:
+        0 0 6px rgba(0, 255, 159, 0.95),
+        0 0 14px rgba(0, 255, 159, 0.85),
+        0 0 26px rgba(57, 255, 20, 0.65),
+        0 0 44px rgba(0, 255, 159, 0.45);
+    }
+    50% {
+      text-shadow:
+        0 0 9px rgba(0, 255, 159, 1),
+        0 0 20px rgba(0, 255, 159, 0.95),
+        0 0 36px rgba(57, 255, 20, 0.75),
+        0 0 60px rgba(0, 255, 159, 0.55),
+        0 0 90px rgba(57, 255, 20, 0.3);
+    }
+  }
+
+  /* Lightweight floating glowing particles (CSS keyframes only) */
+  .hero-particle {
+    box-shadow: 0 0 5px rgba(0, 255, 159, 0.95), 0 0 10px rgba(57, 255, 20, 0.6);
+    animation: hero-particle-float 5.2s ease-in-out infinite, hero-particle-twinkle 1.9s ease-in-out infinite;
+    will-change: transform, opacity;
+  }
+
+  @keyframes hero-particle-float {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(-16px) translateX(1px); }
+  }
+  @keyframes hero-particle-twinkle {
+    0%, 100% { opacity: 0.25; }
+    45% { opacity: 0.9; }
+  }
+
+  /* Pure CSS fast scanning lasers (very cheap, no JS/Framer cost) */
+  .hero-laser-css {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      #39ff14,
+      #00ff9f,
+      #39ff14,
+      transparent
+    );
+    box-shadow: 0 0 8px rgba(0,255,159,0.85), 0 0 16px rgba(57,255,20,0.5);
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.55;
+    animation: hero-laser-sweep 3.6s linear infinite;
+  }
+
+  @keyframes hero-laser-sweep {
+    0% { transform: translateX(-55%); }
+    100% { transform: translateX(155%); }
+  }
+
+  /* Extra targeted soft glow directly on the neon sign text area in the photo */
+  .hero-sign-glow {
+    position: absolute;
+    left: 50%;
+    top: 34%;
+    transform: translateX(-50%);
+    width: 620px;
+    height: 210px;
+    background: radial-gradient(
+      ellipse,
+      rgba(0, 255, 159, 0.22) 0%,
+      rgba(57, 255, 20, 0.12) 42%,
+      transparent 72%
+    );
+    filter: blur(70px);
+    pointer-events: none;
+    z-index: 1;
+    animation: hero-sign-glow-pulse 4.8s ease-in-out infinite;
+    will-change: opacity, transform;
+  }
+
+  @keyframes hero-sign-glow-pulse {
+    0%, 100% { opacity: 0.55; transform: translateX(-50%) scale(0.96); }
+    50% { opacity: 0.95; transform: translateX(-50%) scale(1.04); }
+  }
+
+  /* Subtle live glow pulse on the centered logo in the hero (keeps it feeling powered on) */
+  .hero-logo-pulse {
+    animation: hero-logo-glow 5.5s ease-in-out infinite;
+    will-change: filter;
+  }
+  @keyframes hero-logo-glow {
+    0%, 100% { filter: drop-shadow(0 0 18px rgba(0,255,159,0.35)); }
+    50% { filter: drop-shadow(0 0 28px rgba(0,255,159,0.6)); }
+  }
+}
