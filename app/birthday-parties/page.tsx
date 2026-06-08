@@ -67,7 +67,6 @@ const addons = [
 ];
 
 const includedAlways = [
-  "Exclusive access to laser tag arena for your group",
   "Private party room for 2 full hours",
   "Dedicated staff & party host (on higher packages)",
   "Hassle-free — we handle setup, serving, and cleanup",
@@ -114,7 +113,7 @@ export default function BirthdayPartiesPage() {
             <h2 className="mt-2 text-3xl font-semibold tracking-tight">We handle the chaos. You enjoy the memories.</h2>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {includedAlways.map((item, i) => (
               <div key={i} className="rounded-2xl border border-white/10 bg-space-900/60 p-5 text-sm text-white/80 flex items-start gap-3">
                 <Star className="mt-0.5 h-4 w-4 flex-none text-neon-lime" aria-hidden />

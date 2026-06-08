@@ -26,7 +26,7 @@ const gameCategories = [
 const combos = [
   {
     title: "Laser Tag + Arcade",
-    desc: "Play laser tag missions then cash in tokens or tickets. The perfect one-two punch for any visit.",
+    desc: "Play laser tag missions then load your play card and rack up tickets. The perfect one-two punch for any visit.",
     cta: "Play Laser Tag",
     href: "/laser-tag",
   },
@@ -41,22 +41,33 @@ const combos = [
 export default function ArcadePage() {
   return (
     <div className="min-h-screen bg-space-950 text-white">
-      {/* Hero */}
-      <div className="relative pt-24 pb-16 sm:pt-28 border-b border-white/10 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(#ffffff0a_0.8px,transparent_1px)] bg-[length:3px_3px]" aria-hidden />
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center relative">
-          <div className="mb-4 inline-flex items-center rounded-full border border-neon-purple/30 bg-neon-purple/10 px-4 py-1 text-xs tracking-[2.5px] text-neon-green">
+      {/* Hero — Planet Laser arcade lobby photo background */}
+      <div className="relative min-h-[70vh] sm:min-h-[75vh] pt-24 pb-16 sm:pt-28 border-b border-white/10 overflow-hidden">
+        <img
+          src="/arcade-hero.png"
+          alt="Planet Laser arcade with air hockey, basketball games, claw machines, and neon ARCADE FUN signage"
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/68 to-black/88" aria-hidden />
+        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black/90 via-black/50 to-transparent" aria-hidden />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,255,159,0.06)_15%,transparent_70%)]" aria-hidden />
+
+        <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+          <div className="mb-4 inline-flex items-center rounded-full border border-neon-green/35 bg-black/50 px-4 py-1.5 text-xs tracking-[2.5px] text-neon-green backdrop-blur-sm">
             REDEMPTION • CLASSICS • NEW RELEASES
           </div>
 
-          <h1 className="text-5xl sm:text-6xl font-bold tracking-tighter heading-display">
+          <h1 className="hero-photo-title text-5xl sm:text-6xl font-bold tracking-tighter heading-display">
             Power Up in the<br />
             <span className="bg-gradient-to-r from-neon-green via-neon-lime to-neon-cyan bg-clip-text text-transparent text-glow-green">
               Arcade Zone
             </span>
           </h1>
-          <p className="mt-5 text-xl text-white/70 max-w-xl mx-auto">
-            High-energy games before or after your laser tag missions. Drop in anytime — no reservation needed.
+          <p className="hero-photo-subtext mt-5 text-xl max-w-xl mx-auto">
+            High-energy games before or after your laser tag missions. Drop in anytime, no reservation needed.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
@@ -67,7 +78,7 @@ export default function ArcadePage() {
               Call for Group Info
             </Button>
           </div>
-          <p className="mt-3 text-xs text-white/50">Open daily • Perfect for families, date nights &amp; squad hangs</p>
+          <p className="hero-photo-caption mt-5">Open daily • Perfect for families, date nights &amp; squad hangs</p>
         </div>
       </div>
 
@@ -82,7 +93,7 @@ export default function ArcadePage() {
                 Keep the energy going in our bright, buzzing arcade packed with redemption games and crowd-pleasing classics. Whether you’re topping the laser tag leaderboard or just came to play, the arcade delivers instant gratification and serious prize potential.
               </p>
               <div className="mt-6 flex items-center gap-2 text-sm text-white/60">
-                <Users className="h-4 w-4" aria-hidden /> All ages • Tokens or card-based play • Great for all group sizes
+                <Users className="h-4 w-4" aria-hidden /> All ages • Card-based play • Great for all group sizes
               </div>
             </div>
 
@@ -166,7 +177,7 @@ export default function ArcadePage() {
 
       {/* Bottom CTA strip */}
       <div className="py-12 text-center border-t border-white/10">
-        <p className="text-white/60">Drop in today — the games are waiting.</p>
+        <p className="text-white/80">Drop in today, the games are waiting.</p>
         <div className="mt-4">
           <Button href={BUSINESS.phoneHref} size="lg" variant="ghost">
             Call {BUSINESS.phone} for current specials

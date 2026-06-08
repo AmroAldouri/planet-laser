@@ -184,12 +184,12 @@ export default function Home() {
               </Link>
             </motion.div>
 
-            <motion.div
+            <motion.p
               variants={heroItem}
-              className="mt-7 text-[10px] tracking-[4px] text-white/40 font-medium"
+              className="hero-photo-caption mt-7 tracking-[2px]"
             >
               GTA’S ULTIMATE NEON EXPERIENCE
-            </motion.div>
+            </motion.p>
           </motion.div>
         </div>
 
