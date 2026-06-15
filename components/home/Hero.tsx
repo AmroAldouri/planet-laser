@@ -22,10 +22,10 @@ const laserBeams = [
 
 // Demo prompt for the Grok Imagine example (cosmic laser tag arena concept)
 const ARENA_GENERATION_PROMPT =
-  "A cinematic wide shot of an epic multi-level laser tag arena called Planet Laser. " +
+  "A cinematic wide shot of an epic multi level laser tag arena called Planet Laser. " +
   "Intense atmospheric fog, powerful neon cyan, magenta, purple and electric blue lighting throughout. " +
   "Players wearing illuminated vests and futuristic phasers battling on multiple glowing platforms. " +
-  "Dramatic laser beams, high-energy cosmic dark space theme, reflective floors, ultra detailed, vibrant, " +
+  "Dramatic laser beams, high energy cosmic dark space theme, reflective floors, ultra detailed, vibrant, " +
   "immersive entertainment photography, 16:9 cinematic composition";
 
 export function Hero() {
@@ -103,7 +103,7 @@ export function Hero() {
             key={i}
             className={`absolute top-0 h-[120%] w-1 bg-gradient-to-b ${beam.color} blur-sm`}
             style={{ left: beam.left, transformOrigin: "top center" }}
-            animate={{ rotate: [beam.rotate - 3, beam.rotate + 3, beam.rotate - 3] }}
+            animate={{ rotate: [beam.rotate, 3, beam.rotate + 3, beam.rotate, 3] }}
             transition={{ duration: 6 + i, repeat: Infinity, ease: "easeInOut" }}
           />
         ))}
@@ -212,12 +212,12 @@ export function Hero() {
         >
           {[
             { value: "20+", label: "Years of Fun" },
-            { value: "Multi-Level", label: "Laser Arena" },
+            { value: "Multi Level", label: "Laser Arena" },
             { value: "All Ages", label: "Family Friendly" },
           ].map((stat) => (
             <div
               key={stat.label}
-              className="rounded-2xl border border-white/10 bg-space-900/60 px-4 py-5 text-center backdrop-blur-sm"
+              className="rounded-2xl border border-white/10 bg-space-900/78 px-4 py-5 text-center backdrop-blur-sm"
             >
               <p className="text-lg font-bold text-neon-cyan sm:text-xl">{stat.value}</p>
               <p className="mt-1 text-xs text-white/50 sm:text-sm">{stat.label}</p>
@@ -235,7 +235,7 @@ export function Hero() {
               transition={{ duration: 0.4 }}
               className="mx-auto mt-10 max-w-3xl"
             >
-              <div className="rounded-3xl border border-white/10 bg-space-900/70 p-5 backdrop-blur-sm">
+              <div className="rounded-3xl border border-white/10 bg-space-900/86 p-5 backdrop-blur-sm">
                 <div className="flex items-center justify-between mb-4 px-1">
                   <div className="flex items-center gap-2 text-sm font-medium text-neon-cyan">
                     <Sparkles className="h-4 w-4" aria-hidden />
@@ -271,7 +271,7 @@ export function Hero() {
                   <div className="overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
                     <img
                       src={generatedImage}
-                      alt="AI-generated custom multi-level laser tag arena concept with neon lighting"
+                      alt="AI generated custom multi level laser tag arena concept with neon lighting"
                       className="w-full h-auto object-cover"
                     />
                   </div>

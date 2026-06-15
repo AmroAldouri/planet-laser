@@ -18,7 +18,7 @@ export function FinalCTA() {
             Ready to own the arena?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-lg text-white/70">
-            Grab your crew and book your session today. Drop-ins are welcome, but reservations are recommended for groups of 10+ and all birthday parties.
+            Grab your crew and book your session today. Drop ins are welcome, but reservations are recommended for groups of 10+ and all birthday parties.
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">

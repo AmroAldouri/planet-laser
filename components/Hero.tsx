@@ -25,16 +25,16 @@ export function Hero() {
   return (
     <section
       className="relative h-screen w-full overflow-hidden bg-black"
-      aria-label="Hero section — Planet Laser cosmic laser tag experience"
+      aria-label="Hero section, Planet Laser cosmic laser tag experience"
     >
       {/* 
         Dramatic futuristic SVG hero background with built-in animated green neon laser beams.
         Prioritizes public/ assets. Real Grok Imagine photo versions (hero-background.jpg etc)
-        were generated via the image tool — drop the jpgs into /public to swap in photoreal.
+        were generated via the image tool. Drop the jpgs into /public to swap in photoreal.
       */}
       <img
         src="/hero-background.svg"
-        alt="Dramatic dark futuristic multi-level laser tag arena with intense bright cyber green neon laser beams, excited players in glowing vests, volumetric fog, high-energy cinematic atmosphere — Planet Laser Oakville"
+        alt="Dramatic dark futuristic multi level laser tag arena with intense bright cyber green neon laser beams, excited players in glowing vests, volumetric fog, high energy cinematic atmosphere, Planet Laser Oakville"
         className="absolute inset-0 w-full h-full object-cover"
         loading="eager"
         fetchPriority="high"
@@ -93,7 +93,7 @@ export function Hero() {
         ))}
       </div>
 
-      {/* Centered content - Staggered entrance */}
+      {/* Centered content, Staggered entrance */}
       <div className="relative z-10 flex h-full items-center justify-center px-5 sm:px-8">
         <motion.div
           variants={heroContainer}

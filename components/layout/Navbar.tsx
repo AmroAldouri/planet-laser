@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { BUSINESS, NAV_LINKS } from "@/lib/constants";
 import { Button } from "@/components/ui/Button";
+import { PlanetLaserMark } from "@/components/ui/PlanetLaserMark";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
@@ -16,7 +17,7 @@ export function Navbar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <nav
           className={cn(
-            "mt-4 flex items-center justify-between rounded-2xl border border-white/10 bg-space-900/80 px-4 py-3 backdrop-blur-xl sm:px-6",
+            "mt-4 flex items-center justify-between rounded-2xl border border-white/10 bg-space-900/92 px-4 py-3 backdrop-blur-xl sm:px-6",
             "shadow-[0_8px_32px_rgba(0,0,0,0.4)]",
           )}
           aria-label="Main navigation"
@@ -26,11 +27,7 @@ export function Navbar() {
             className="group flex items-center"
             onClick={() => setIsOpen(false)}
           >
-            <img
-              src="/logo.png"
-              alt="Planet Laser"
-              className="h-9 w-auto sm:h-10 transition-transform group-hover:scale-[1.015]"
-            />
+            <PlanetLaserMark variant="compact" className="h-9 w-auto sm:h-10 transition-transform group-hover:scale-[1.015]" />
           </Link>
 
           <ul className="hidden items-center gap-1 lg:flex">

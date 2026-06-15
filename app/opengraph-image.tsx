@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { BUSINESS } from "@/lib/constants";
 
-export const alt = `${BUSINESS.name} — Laser Tag & Arcade in Oakville`;
+export const alt = `${BUSINESS.name}, Laser Tag & Arcade in Oakville`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

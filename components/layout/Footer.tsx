@@ -1,22 +1,19 @@
 import Link from "next/link";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { PlanetLaserMark } from "@/components/ui/PlanetLaserMark";
 import { BUSINESS, NAV_LINKS } from "@/lib/constants";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/10 bg-space-950 pt-16 pb-10 text-sm">
+    <footer className="border-t border-white/10 bg-black/58 backdrop-blur-md pt-16 pb-10 text-sm">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-x-10 gap-y-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
             <Link href="/" className="group inline-block">
-              <img
-                src="/logo.png"
-                alt="Planet Laser"
-                className="h-8 w-auto transition-transform group-hover:scale-[1.015]"
-              />
+              <PlanetLaserMark variant="compact" className="h-8 w-auto transition-transform group-hover:scale-[1.015]" />
             </Link>
             <p className="mt-4 max-w-[18ch] text-white/60 leading-relaxed">
               Oakville’s ultimate laser tag, arcade &amp; party destination. Serving families across the GTA since 2005.
@@ -79,7 +76,7 @@ export function Footer() {
                   <li key={h.day} className="flex justify-between gap-4">
                     <span>{h.day}</span>
                     <span className="text-white/50">
-                      {h.opens} – {closeDisplay}
+                      {h.opens} to {closeDisplay}
                     </span>
                   </li>
                 );

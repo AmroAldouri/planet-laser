@@ -4,8 +4,8 @@ export const BUSINESS = {
   name: "Planet Laser",
   tagline: "Oakville's Ultimate Laser Tag & Arcade Experience",
   description:
-    "Multi-level laser tag arena, arcade games, birthday parties & corporate events in Oakville — serving families and groups across Mississauga & Burlington.",
-  phone: "(905) 847-9336",
+    "Multi level laser tag arena, arcade games, birthday parties & corporate events in Oakville, serving families and groups across Mississauga & Burlington.",
+  phone: "(905) 847 9336",
   phoneHref: "tel:+19058479336",
   email: "information@planetlaser.ca",
   address: {
@@ -46,7 +46,7 @@ export const SERVICES = [
   {
     title: "Laser Tag",
     description:
-      "Battle across our multi-level arena with competitive play maps built for all ages.",
+      "Battle across our multi level arena with competitive play maps built for all ages.",
     href: "/laser-tag",
     icon: "crosshair" as const,
     accent: "cyan" as const,
@@ -54,7 +54,7 @@ export const SERVICES = [
   {
     title: "Birthday Parties",
     description:
-      "Epic party packages with laser tag, arcade time, and hassle-free hosting for Oakville families.",
+      "Epic party packages with laser tag, arcade time, and hassle free hosting for Oakville families.",
     href: "/birthday-parties",
     icon: "cake" as const,
     accent: "magenta" as const,
@@ -62,7 +62,7 @@ export const SERVICES = [
   {
     title: "Arcade",
     description:
-      "Classic and modern redemption games — keep the fun going before and after your mission.",
+      "Classic and modern redemption games. Keep the fun going before and after your mission.",
     href: "/arcade",
     icon: "gamepad2" as const,
     accent: "purple" as const,
@@ -70,7 +70,7 @@ export const SERVICES = [
   {
     title: "Corporate Events",
     description:
-      "Team-building missions and private bookings for groups from Mississauga, Burlington & beyond.",
+      "Team building missions and private bookings for groups from Mississauga, Burlington & beyond.",
     href: "/corporate-events",
     icon: "briefcase" as const,
     accent: "blue" as const,

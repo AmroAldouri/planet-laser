@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { NeonBackdrop } from "@/components/ui/NeonBackdrop";
 import { BUSINESS, SITE_URL } from "@/lib/constants";
 import { getLocalBusinessSchema } from "@/lib/schema";
 import "./globals.css";
@@ -51,7 +52,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: `${BUSINESS.name} — Cosmic laser tag arena in Oakville`,
+        alt: `${BUSINESS.name}, Cosmic laser tag arena in Oakville`,
       },
     ],
   },
@@ -96,11 +97,14 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans`}
+        className={`${geistSans.variable} ${geistMono.variable} font-sans relative`}
       >
+        <NeonBackdrop />
         <Navbar />
-        <main className="pt-4">{children}</main>
-        <Footer />
+        <main className="relative z-10 pt-4">{children}</main>
+        <div className="relative z-10">
+          <Footer />
+        </div>
         <Analytics />
       </body>
     </html>

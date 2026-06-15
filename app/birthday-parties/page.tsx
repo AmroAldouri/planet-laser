@@ -3,16 +3,18 @@
 import { motion } from "framer-motion";
 import { Cake, Users, Star, Gift, ArrowRight, Phone } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { HeroFlowBackground } from "@/components/ui/HeroFlowBackground";
+import { HeroLaserOverlay } from "@/components/ui/HeroLaserOverlay";
 import { BUSINESS } from "@/lib/constants";
 
 const packages = [
   {
     name: "Basic",
     price: 250,
-    priceNote: "Mon–Thu",
+    priceNote: "Mon to Thu",
     weekdayPrice: null,
     perPerson: 25,
-    perPersonNote: "Mon–Thu",
+    perPersonNote: "Mon to Thu",
     minGuests: 10,
     popular: false,
     features: [
@@ -26,10 +28,10 @@ const packages = [
   {
     name: "Supreme",
     price: 300,
-    priceNote: "Fri–Sun",
+    priceNote: "Fri to Sun",
     weekdayPrice: 280,
     perPerson: 30,
-    perPersonNote: "Fri–Sun • $28 Mon–Thu",
+    perPersonNote: "Fri to Sun • $28 Mon to Thu",
     minGuests: 10,
     popular: false,
     features: [
@@ -44,10 +46,10 @@ const packages = [
   {
     name: "Ultimate",
     price: 400,
-    priceNote: "Fri–Sun",
+    priceNote: "Fri to Sun",
     weekdayPrice: 380,
     perPerson: 40,
-    perPersonNote: "Fri–Sun • $38 Mon–Thu",
+    perPersonNote: "Fri to Sun • $38 Mon to Thu",
     minGuests: 10,
     popular: true,
     features: [
@@ -69,24 +71,33 @@ const addons = [
 const includedAlways = [
   "Private party room for 2 full hours",
   "Dedicated staff & party host (on higher packages)",
-  "Hassle-free — we handle setup, serving, and cleanup",
+  "Hassle free: we handle setup, serving, and cleanup",
 ];
 
 export default function BirthdayPartiesPage() {
   return (
-    <div className="min-h-screen bg-space-950 text-white">
+    <div className="min-h-screen text-white relative">
       {/* Hero */}
-      <div className="relative pt-24 pb-14 sm:pt-28 sm:pb-16 border-b border-white/10">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,#a855f710_0%,transparent_60%)]" aria-hidden />
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center relative">
-          <div className="inline-block rounded-full bg-neon-magenta/10 border border-neon-magenta/30 px-4 py-1 text-xs tracking-[2.5px] text-neon-green mb-4">
+      <div className="relative min-h-[70vh] sm:min-h-[75vh] pt-24 pb-14 sm:pt-28 sm:pb-16 border-b border-white/10 overflow-hidden">
+        <HeroFlowBackground
+          src="/birthday-parties-hero.png"
+          alt="Planet Laser private birthday party room with colorful murals, tables set for guests, and festive decor"
+          variant="subpage"
+        />
+        <HeroLaserOverlay />
+
+        <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-block rounded-full bg-neon-magenta/10 border border-neon-magenta/35 bg-black/65 px-4 py-1 text-xs tracking-[2.5px] text-neon-green backdrop-blur-sm mb-4">
             BIRTHDAYS THAT KIDS (AND PARENTS) RAVE ABOUT
           </div>
 
-          <h1 className="text-5xl sm:text-6xl font-bold tracking-[-1.5px] leading-none heading-display">
-            Make Their Birthday<br />Out of This World
+          <h1 className="hero-photo-title text-5xl sm:text-6xl font-bold tracking-[-1.5px] leading-none heading-display">
+            Make Their Birthday<br />
+            <span className="bg-gradient-to-r from-neon-green via-neon-lime to-neon-cyan bg-clip-text text-transparent text-glow-green">
+              Out of This World
+            </span>
           </h1>
-          <p className="mt-5 text-xl text-white/70 max-w-2xl mx-auto">
+          <p className="hero-photo-subtext mt-5 text-xl text-white/70 max-w-2xl mx-auto">
             Epic laser tag missions, private party room, pizza, arcade credits, and a dedicated host who takes care of everything. You just show up and celebrate.
           </p>
 
@@ -101,7 +112,7 @@ export default function BirthdayPartiesPage() {
               Just want to play laser tag?
             </Button>
           </div>
-          <p className="mt-4 text-xs text-white/50">Minimum 10 guests • 2 laser missions included in every package</p>
+          <p className="hero-photo-caption mt-4 text-xs">Minimum 10 guests • 2 laser missions included in every package</p>
         </div>
       </div>
 
@@ -109,13 +120,13 @@ export default function BirthdayPartiesPage() {
       <section className="py-16">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <p className="text-neon-lime text-xs tracking-[3px] uppercase">Stress-Free Celebrations</p>
+            <p className="text-neon-lime text-xs tracking-[3px] uppercase">Stress Free Celebrations</p>
             <h2 className="mt-2 text-3xl font-semibold tracking-tight">We handle the chaos. You enjoy the memories.</h2>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {includedAlways.map((item, i) => (
-              <div key={i} className="rounded-2xl border border-white/10 bg-space-900/60 p-5 text-sm text-white/80 flex items-start gap-3">
+              <div key={i} className="rounded-2xl border border-white/10 bg-space-900/78 p-5 text-sm text-white/80 flex items-start gap-3">
                 <Star className="mt-0.5 h-4 w-4 flex-none text-neon-lime" aria-hidden />
                 {item}
               </div>
@@ -125,12 +136,12 @@ export default function BirthdayPartiesPage() {
       </section>
 
       {/* Packages */}
-      <section className="border-y border-white/10 bg-black/30 py-16 sm:py-20" id="packages">
+      <section className="border-y border-white/10 bg-black/48 py-16 sm:py-20" id="packages">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <p className="uppercase tracking-[3px] text-xs text-neon-green">Choose Your Package</p>
             <h2 className="mt-2 text-4xl font-bold tracking-tight">Birthday Party Packages</h2>
-            <p className="text-white/60 mt-2">All packages include 2 laser tag missions + 2-hour private room. Weekend (Fri–Sun) pricing shown first for Supreme &amp; Ultimate packages.</p>
+            <p className="text-white/60 mt-2">All packages include 2 laser tag missions + 2 hour private room. Weekend (Fri to Sun) pricing shown first for Supreme &amp; Ultimate packages.</p>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-6">
@@ -139,8 +150,8 @@ export default function BirthdayPartiesPage() {
                 key={index}
                 whileHover={{ y: -6 }}
                 className={`relative flex flex-col rounded-3xl border p-8 transition-all ${pkg.popular
-                  ? "border-neon-green bg-space-900/80 shadow-[0_0_0_1px_rgba(0,255,159,0.45)] box-glow-green"
-                  : "border-white/10 bg-space-900/60"}`}
+                  ? "border-neon-green bg-space-900/92 shadow-[0_0_0_1px_rgba(0,255,159,0.45)] box-glow-green"
+                  : "border-white/10 bg-space-900/78"}`}
               >
                 {pkg.popular && (
                   <div className="absolute -top-3 right-6 rounded-full bg-neon-cyan px-4 py-0.5 text-xs font-bold tracking-wider text-space-950">
@@ -150,12 +161,12 @@ export default function BirthdayPartiesPage() {
 
                 <div>
                   <div className="flex items-baseline gap-2">
-                    <span className="text-5xl font-bold tabular-nums tracking-[-2px]">{pkg.price}</span>
+                    <span className="text-5xl font-bold tabular-nums tracking-[-2px]">${pkg.price}</span>
                     <span className="text-white/60">/ {pkg.priceNote}</span>
                   </div>
                   {pkg.weekdayPrice && (
                     <div className="text-sm text-white/60 mt-0.5">
-                      ${pkg.weekdayPrice} Mon–Thu
+                      ${pkg.weekdayPrice} Mon to Thu
                     </div>
                   )}
                 </div>
@@ -217,12 +228,12 @@ export default function BirthdayPartiesPage() {
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <p className="text-xs uppercase tracking-[3px] text-neon-lime">Level Up Your Celebration</p>
-            <h2 className="mt-2 text-3xl font-semibold">Popular Add-Ons</h2>
+            <h2 className="mt-2 text-3xl font-semibold">Popular Add Ons</h2>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-4">
             {addons.map((addon, i) => (
-              <div key={i} className="flex items-center justify-between rounded-2xl border border-white/10 bg-space-900/70 px-6 py-5">
+              <div key={i} className="flex items-center justify-between rounded-2xl border border-white/10 bg-space-900/86 px-6 py-5">
                 <div className="font-medium">{addon.name}</div>
                 <div className="text-right text-neon-lime tabular-nums">
                   {addon.price} {addon.note && <span className="text-xs text-white/50 ml-1">{addon.note}</span>}
@@ -238,7 +249,7 @@ export default function BirthdayPartiesPage() {
       </section>
 
       {/* Real party testimonials */}
-      <section className="border-y border-white/10 bg-space-900/40 py-16">
+      <section className="border-y border-white/10 bg-space-900/58 py-16">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <p className="uppercase text-xs tracking-widest text-neon-green">Parents are obsessed</p>
@@ -250,7 +261,7 @@ export default function BirthdayPartiesPage() {
               "Wow, I honestly can't say enough amazing things about my son's birthday party at Planet Laser in Oakville! You know those rare times when something actually turns out BETTER than you hoped? This was definitely one of them!",
               "I had my daughter’s birthday party in Planet Laser. I can say it is the best birthday party experience. Everything ran smoothly, the host and all staff were very very helpful and cooperative. I am so glad all my daughter’s friends enjoyed so much and were so happy.",
             ].map((q, idx) => (
-              <div key={idx} className="rounded-2xl border border-white/10 bg-space-950/70 p-7 text-[15px] leading-relaxed text-white/80">
+              <div key={idx} className="rounded-2xl border border-white/10 bg-space-950/86 p-7 text-[15px] leading-relaxed text-white/80">
                 “{q}”
               </div>
             ))}
@@ -262,7 +273,7 @@ export default function BirthdayPartiesPage() {
       <div className="py-16 sm:py-20">
         <div className="mx-auto max-w-3xl px-4 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">Ready to throw the best party of the year?</h2>
-          <p className="mt-3 text-lg text-white/70">Book early — weekends fill up fast. We’ll help you pick the perfect package.</p>
+          <p className="mt-3 text-lg text-white/70">Book early, weekends fill up fast. We’ll help you pick the perfect package.</p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
             <Button href={BUSINESS.bookUrl} size="lg">Book Birthday Party</Button>

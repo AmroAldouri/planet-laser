@@ -74,8 +74,8 @@ export function ServiceCards() {
             Your Mission Starts Here
           </h2>
           <p className="mt-4 text-lg text-white/60">
-            From drop-in laser battles to epic birthday bashes and corporate
-            team missions — we&apos;ve got the whole crew covered.
+            From drop in laser battles to epic birthday bashes and corporate
+            team missions, we&apos;ve got the whole crew covered.
           </p>
         </div>
 
@@ -95,7 +95,7 @@ export function ServiceCards() {
                 <Link
                   href={service.href}
                   className={cn(
-                    "group relative flex h-full flex-col rounded-2xl border border-white/10 bg-space-900/70 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-neon-green/50 hover:shadow-[0_0_26px_rgba(0,255,159,0.18)]",
+                    "group relative flex h-full flex-col rounded-2xl border border-white/10 bg-space-900/86 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-neon-green/50 hover:shadow-[0_0_26px_rgba(0,255,159,0.18)]",
                     accent.glow,
                   )}
                 >

@@ -48,7 +48,7 @@ export function getLocalBusinessSchema() {
           itemOffered: {
             "@type": "Service",
             name: "Laser Tag",
-            description: "Multi-level laser tag arena for all ages.",
+            description: "Multi level laser tag arena for all ages.",
           },
         },
         {
@@ -72,7 +72,7 @@ export function getLocalBusinessSchema() {
           itemOffered: {
             "@type": "Service",
             name: "Corporate Events",
-            description: "Team-building and private group bookings.",
+            description: "Team building and private group bookings.",
           },
         },
       ],

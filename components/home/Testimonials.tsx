@@ -11,7 +11,7 @@ const testimonials = [
   },
   {
     quote:
-      "I've visited Planet Laser five times in the past two weeks with my son and his friends (ages 9-11), and each visit has been an absolute blast! The management and staff are incredibly welcoming, ensuring every kid has a great time and leaves with a smile.",
+      "I've visited Planet Laser five times in the past two weeks with my son and his friends (ages 9 to 11), and each visit has been an absolute blast! The management and staff are incredibly welcoming, ensuring every kid has a great time and leaves with a smile.",
     name: "Nadeem",
   },
   {
@@ -28,7 +28,7 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="relative py-20 sm:py-28 bg-space-900/40 border-y border-white/10" aria-labelledby="testimonials-heading">
+    <section className="relative py-20 sm:py-28 bg-space-900/58 border-y border-white/10" aria-labelledby="testimonials-heading">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-neon-green">Real Families. Real Fun.</p>
@@ -45,14 +45,14 @@ export function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.03 }}
-              className="relative flex h-full flex-col rounded-3xl border border-white/10 bg-space-950/70 p-8"
+              className="relative flex h-full flex-col rounded-3xl border border-white/10 bg-space-950/86 p-8"
             >
               <Quote className="h-8 w-8 text-neon-green/70" aria-hidden />
               <blockquote className="mt-6 flex-1 text-[15px] leading-relaxed text-white/80">
                 “{t.quote}”
               </blockquote>
               <div className="mt-6 border-t border-white/10 pt-4 text-sm font-medium text-neon-green text-glow-green-static">
-                — {t.name}
+                {t.name}
               </div>
             </motion.div>
           ))}

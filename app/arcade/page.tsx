@@ -1,37 +1,67 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Gamepad2, Coins, Gift, Zap, ArrowRight, Users } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { HeroFlowBackground } from "@/components/ui/HeroFlowBackground";
+import { HeroLaserOverlay } from "@/components/ui/HeroLaserOverlay";
 import { BUSINESS } from "@/lib/constants";
+
+const arcadePhotos = [
+  {
+    src: "/arcade-floor-1.png",
+    alt: "Planet Laser arcade floor with cyclone redemption game, prize counter, and neon ARCADE signage",
+    label: "Prize Counter & Redemption",
+    sub: "Tickets, prizes & non stop play",
+    accent: "text-neon-green",
+    objectPosition: "center",
+  },
+  {
+    src: "/arcade-floor-2.png",
+    alt: "Planet Laser arcade with Fast and Furious racing games, NBA hoops, cyclone, and classic cabinets",
+    label: "Racing, Hoops & Classics",
+    sub: "Crowd favorites for every age",
+    accent: "text-neon-lime",
+    objectPosition: "center",
+  },
+  {
+    src: "/arcade-boxer.png",
+    alt: "Boxer strength tester arcade game with digital scoreboard at Planet Laser",
+    label: "Test Your Power",
+    sub: "Boxer, reflex & speed challenges",
+    accent: "text-neon-magenta",
+    objectPosition: "top",
+  },
+];
 
 const gameCategories = [
   {
     icon: Gamepad2,
     title: "Classic & Modern Video Games",
-    desc: "Timeless favorites and the latest hits. Racing, shooters, fighters, and more — something for every skill level and age.",
+    desc: "Timeless favorites and the latest hits. Racing, shooters, fighters, and more, something for every skill level and age.",
   },
   {
     icon: Coins,
     title: "Redemption Games",
-    desc: "Ticket-blasting favorites like skee-ball, basketball hoops, and whack-a-mole. Rack up tickets and trade them for epic prizes.",
+    desc: "Ticket blasting favorites like skee ball, basketball hoops, and whack a mole. Rack up tickets and trade them for epic prizes.",
   },
   {
     icon: Gift,
     title: "Prize Counter",
-    desc: "From small toys and candy to big-ticket items. The more you play, the better the haul. Kids go wild for it.",
+    desc: "From small toys and candy to big ticket items. The more you play, the better the haul. Kids go wild for it.",
   },
 ];
 
 const combos = [
   {
     title: "Laser Tag + Arcade",
-    desc: "Play laser tag missions then load your play card and rack up tickets. The perfect one-two punch for any visit.",
+    desc: "Play laser tag missions then load your play card and rack up tickets. The perfect one two punch for any visit.",
     cta: "Play Laser Tag",
     href: "/laser-tag",
   },
   {
-    title: "Ultimate Birthday Add-On",
+    title: "Ultimate Birthday Add On",
     desc: "The Ultimate package includes 60 arcade credits so every guest gets extra playtime after the missions and pizza.",
     cta: "See Birthday Packages",
     href: "/birthday-parties",
@@ -40,23 +70,18 @@ const combos = [
 
 export default function ArcadePage() {
   return (
-    <div className="min-h-screen bg-space-950 text-white">
+    <div className="min-h-screen text-white relative">
       {/* Hero — Planet Laser arcade lobby photo background */}
       <div className="relative min-h-[70vh] sm:min-h-[75vh] pt-24 pb-16 sm:pt-28 border-b border-white/10 overflow-hidden">
-        <img
+        <HeroFlowBackground
           src="/arcade-hero.png"
           alt="Planet Laser arcade with air hockey, basketball games, claw machines, and neon ARCADE FUN signage"
-          className="absolute inset-0 w-full h-full object-cover"
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
+          variant="subpage"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/68 to-black/88" aria-hidden />
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black/90 via-black/50 to-transparent" aria-hidden />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,255,159,0.06)_15%,transparent_70%)]" aria-hidden />
+        <HeroLaserOverlay />
 
         <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <div className="mb-4 inline-flex items-center rounded-full border border-neon-green/35 bg-black/50 px-4 py-1.5 text-xs tracking-[2.5px] text-neon-green backdrop-blur-sm">
+          <div className="mb-4 inline-flex items-center rounded-full border border-neon-green/35 bg-black/65 px-4 py-1.5 text-xs tracking-[2.5px] text-neon-green backdrop-blur-sm">
             REDEMPTION • CLASSICS • NEW RELEASES
           </div>
 
@@ -82,30 +107,69 @@ export default function ArcadePage() {
         </div>
       </div>
 
+      {/* Arcade photos */}
+      <section className="py-16 sm:py-20 border-b border-white/10 bg-black/40">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <p className="text-xs uppercase tracking-[3px] text-neon-green">Real Photos</p>
+            <h2 className="mt-2 text-3xl sm:text-4xl font-bold tracking-tight heading-display">Inside the Arcade</h2>
+            <p className="mt-3 max-w-lg mx-auto text-white/60">Bright lights, buzzing energy, and games waiting the moment you walk in.</p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-3 lg:gap-6 md:items-stretch">
+            {arcadePhotos.map((photo, i) => (
+              <motion.figure
+                key={photo.src}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55, delay: i * 0.08 }}
+                className="neon-frame group relative h-[260px] overflow-hidden rounded-3xl border border-white/10 bg-space-900/78 md:h-[320px] lg:h-[360px]"
+              >
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  style={{ objectPosition: photo.objectPosition }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/88 via-black/20 to-transparent" aria-hidden />
+                <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-3xl pointer-events-none" aria-hidden />
+                <figcaption className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+                  <p className={`text-[10px] sm:text-xs uppercase tracking-[3px] ${photo.accent}`}>{photo.label}</p>
+                  <p className="mt-1 text-sm text-white/75">{photo.sub}</p>
+                </figcaption>
+              </motion.figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* The Vibe */}
       <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <div>
-              <p className="uppercase text-xs tracking-[3px] text-neon-lime">Non-Stop Fun</p>
+              <p className="uppercase text-xs tracking-[3px] text-neon-lime">Non Stop Fun</p>
               <h2 className="mt-2 text-4xl font-bold tracking-tight">Your mission isn’t over when the vest comes off.</h2>
               <p className="mt-5 text-lg text-white/70">
                 Keep the energy going in our bright, buzzing arcade packed with redemption games and crowd-pleasing classics. Whether you’re topping the laser tag leaderboard or just came to play, the arcade delivers instant gratification and serious prize potential.
               </p>
               <div className="mt-6 flex items-center gap-2 text-sm text-white/60">
-                <Users className="h-4 w-4" aria-hidden /> All ages • Card-based play • Great for all group sizes
+                <Users className="h-4 w-4" aria-hidden /> All ages • Card based play • Great for all group sizes
               </div>
             </div>
 
-            <div className="rounded-3xl border border-white/10 bg-space-900/70 p-8 text-sm leading-relaxed text-white/75">
-              “The kids crushed laser tag, then spent the next hour winning enough tickets for the giant stuffed prizes. Parents got to relax with coffee while they played. Win-win.” — Frequent visitor
+            <div className="rounded-3xl border border-white/10 bg-space-900/86 p-8 text-sm leading-relaxed text-white/75">
+              “The kids crushed laser tag, then spent the next hour winning enough tickets for the giant stuffed prizes. Parents got to relax with coffee while they played. Win win.”, Frequent visitor
             </div>
           </div>
         </div>
       </section>
 
       {/* Game Categories */}
-      <section className="border-y border-white/10 py-16 sm:py-20 bg-space-900/30">
+      <section className="border-y border-white/10 py-16 sm:py-20 bg-space-900/50">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <p className="text-xs uppercase tracking-[3px] text-neon-green">What’s in the Arcade</p>
@@ -119,7 +183,7 @@ export default function ArcadePage() {
                 <motion.div
                   key={i}
                   whileHover={{ scale: 1.01 }}
-                  className="rounded-3xl border border-white/10 bg-space-950/70 p-8"
+                  className="rounded-3xl border border-white/10 bg-space-950/86 p-8"
                 >
                   <div className="h-12 w-12 rounded-2xl bg-gradient-to-br from-neon-purple/20 to-neon-cyan/10 flex items-center justify-center mb-6">
                     <Icon className="h-6 w-6 text-neon-green" aria-hidden />
@@ -143,7 +207,7 @@ export default function ArcadePage() {
 
           <div className="grid md:grid-cols-2 gap-6">
             {combos.map((combo, idx) => (
-              <div key={idx} className="group rounded-3xl border border-white/10 bg-space-900/70 p-8 flex flex-col">
+              <div key={idx} className="group rounded-3xl border border-white/10 bg-space-900/86 p-8 flex flex-col">
                 <div className="flex-1">
                   <div className="font-semibold text-2xl tracking-tight group-hover:text-neon-lime transition-colors">{combo.title}</div>
                   <p className="mt-3 text-white/70 leading-relaxed">{combo.desc}</p>
@@ -158,7 +222,7 @@ export default function ArcadePage() {
       </section>
 
       {/* Promos / Practical info */}
-      <section className="border-t border-white/10 bg-black/40 py-14">
+      <section className="border-t border-white/10 bg-black/55 py-14">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 text-neon-lime mb-3">
             <Zap className="h-4 w-4" /> Look out for weekly promos
