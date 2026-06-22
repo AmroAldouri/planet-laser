@@ -26,7 +26,7 @@ const gameModes = [
 const pricing = [
   { games: "1 Game", price: "$9", note: "+ tax" },
   { games: "2 Games", price: "$17", note: "+ tax" },
-  { games: "3 Games", price: "$20", note: "+ tax  (Best Value)" },
+  { games: "3 Games", price: "$20", note: "+ tax" },
 ];
 
 const promos = [

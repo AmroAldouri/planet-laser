@@ -82,7 +82,7 @@ export default function Home() {
             transition={{ duration: 0.55 }}
             className="text-center"
           >
-            <p className="text-xs font-semibold uppercase tracking-[4px] text-neon-green">Est. 2005 • Oakville</p>
+            <p className="text-xs font-semibold uppercase tracking-[4px] text-neon-green">Oakville</p>
             <h2 id="about-heading" className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl heading-display">
               The GTA’s Favorite Place for Laser Tag &amp; Family Fun
             </h2>
