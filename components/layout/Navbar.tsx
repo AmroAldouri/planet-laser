@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { BUSINESS, NAV_LINKS } from "@/lib/constants";
@@ -11,26 +12,41 @@ import { cn } from "@/lib/utils";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <nav
           className={cn(
-            "mt-4 flex items-center justify-between rounded-2xl border border-white/10 bg-space-900/92 px-4 py-3 backdrop-blur-xl sm:px-6",
+            "mt-4 grid grid-cols-[auto_1fr_auto] items-center gap-x-4 rounded-2xl border border-white/10 bg-space-900/92 px-4 py-3 backdrop-blur-xl sm:gap-x-6 sm:px-6",
             "shadow-[0_8px_32px_rgba(0,0,0,0.4)]",
           )}
           aria-label="Main navigation"
         >
           <Link
             href="/"
-            className="group flex items-center"
+            className="group relative flex h-9 shrink-0 items-center sm:h-10"
             onClick={() => setIsOpen(false)}
           >
-            <PlanetLaserMark variant="compact" className="h-9 w-auto sm:h-10 transition-transform group-hover:scale-[1.015]" />
+            <PlanetLaserMark
+              variant="compact"
+              className={cn(
+                "h-9 w-auto origin-left transition-transform sm:h-10",
+                isHome
+                  ? "pointer-events-none scale-[2] sm:scale-[2.5] lg:scale-[3]"
+                  : "group-hover:scale-[1.015]",
+              )}
+            />
           </Link>
 
-          <ul className="hidden items-center gap-1 lg:flex">
+          <ul
+            className={cn(
+              "relative z-20 hidden items-center justify-center gap-1 lg:flex",
+              isHome && "lg:justify-start lg:pl-36 xl:pl-44",
+            )}
+          >
             {NAV_LINKS.map((link, idx) => (
               <li key={link.href}>
                 <Link
@@ -44,7 +60,7 @@ export function Navbar() {
             ))}
           </ul>
 
-          <div className="flex items-center gap-3">
+          <div className="relative z-20 flex items-center justify-end gap-3">
             <Button
               href={BUSINESS.bookUrl}
               size="sm"

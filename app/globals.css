@@ -791,6 +791,22 @@
     50% { transform: translateY(7px); }
   }
 
+  .animate-ticker-scroll {
+    animation: ticker-scroll 40s linear infinite;
+    will-change: transform;
+  }
+
+  @keyframes ticker-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-ticker-scroll {
+      animation: none;
+    }
+  }
+
   .scanline-horizontal {
     position: absolute;
     left: 0;

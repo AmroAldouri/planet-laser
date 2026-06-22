@@ -44,7 +44,7 @@ export function Testimonials() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.03 }}
+              transition={{ duration: 0.35, delay: i * 0.02 }}
               className="relative flex h-full flex-col rounded-3xl border border-white/10 bg-space-950/86 p-8"
             >
               <Quote className="h-8 w-8 text-neon-green/70" aria-hidden />

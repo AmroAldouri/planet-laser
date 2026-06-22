@@ -3,7 +3,9 @@
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { HomeHero } from "@/components/home/HomeHero";
+import { PromoTicker } from "@/components/home/PromoTicker";
 import { BUSINESS } from "@/lib/constants";
+import { ARENA_GALLERY } from "@/lib/arena-gallery";
 
 const ServiceCards = dynamic(
   () => import("@/components/home/ServiceCards").then((m) => ({ default: m.ServiceCards })),
@@ -26,6 +28,7 @@ export default function Home() {
   return (
     <div className="min-h-screen text-white relative">
       <HomeHero />
+      <PromoTicker />
 
       <ServiceCards />
 
@@ -35,7 +38,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
             className="flex flex-col items-center text-center mb-10"
           >
             <p className="text-xs uppercase tracking-[3.5px] text-neon-green">Electric Nights</p>
@@ -43,33 +46,42 @@ export default function Home() {
             <p className="mt-3 max-w-md text-white/60">Real moments. Green beams. Pure adrenaline.</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {[
-              { src: "/gallery-laser-action-1.svg", alt: "Intense laser tag battle with bright green neon beams cutting through fog in the multi level arena" },
-              { src: "/gallery-party-1.svg", alt: "Kids celebrating a birthday party with neon green lights and cake at Planet Laser" },
-              { src: "/gallery-arcade-1.svg", alt: "Futuristic arcade redemption games glowing with cyber green neon marquees and tickets" },
-            ].map((img, i) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 lg:grid-rows-2 gap-4 max-w-6xl mx-auto">
+            {ARENA_GALLERY.map((img, i) => (
               <motion.a
-                key={i}
+                key={img.src}
                 href={img.src}
                 target="_blank"
                 rel="noopener"
-                whileHover={{ scale: 1.015 }}
-                className="neon-frame group relative block overflow-hidden rounded-3xl bg-space-900/78 aspect-[4/3]"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.06 }}
+                whileHover={{ scale: 1.012 }}
+                className={`neon-frame group relative block overflow-hidden rounded-3xl border border-white/10 bg-space-900/78 ${
+                  i === 0
+                    ? "aspect-[4/3] sm:aspect-[16/10] lg:col-span-7 lg:row-span-2 lg:aspect-auto lg:min-h-[420px]"
+                    : i === 3
+                      ? "aspect-[4/3] lg:col-span-5"
+                      : "aspect-[4/3] lg:col-span-5 lg:aspect-[16/11]"
+                }`}
               >
                 <img
                   src={img.src}
                   alt={img.alt}
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                  style={{ objectPosition: img.objectPosition }}
                   loading="lazy"
                   decoding="async"
                 />
-                <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/80 to-transparent" />
-                <div className="absolute bottom-3 left-4 text-xs tracking-widest text-neon-green/90 font-medium">VIEW FULL</div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+                  <div className="text-sm font-semibold text-white">{img.label}</div>
+                  <div className="mt-0.5 text-xs text-neon-green/90">{img.sub}</div>
+                </div>
               </motion.a>
             ))}
           </div>
-          <p className="text-center mt-4 text-[10px] text-white/40 tracking-widest">Hover to zoom • Click for larger view • Swap SVGs for Grok Imagine shots (see suggested public/ names below)</p>
         </div>
       </section>
 
@@ -79,7 +91,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 22 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.55 }}
+            transition={{ duration: 0.4 }}
             className="text-center"
           >
             <p className="text-xs font-semibold uppercase tracking-[4px] text-neon-green">Oakville</p>
@@ -92,7 +104,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.05 }}
+            transition={{ duration: 0.4, delay: 0.05 }}
             className="mt-8 mx-auto max-w-3xl text-center text-lg leading-relaxed text-white/70"
           >
             Planet Laser is Oakville, Mississauga and Burlington’s ultimate spot for family fun and entertainment, featuring a unique multi level laser tag arena and competitive play map. Planet Laser is “THE PLACE” to engage interactively with your friends and family.
@@ -102,7 +114,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.12 }}
+            transition={{ duration: 0.4, delay: 0.12 }}
             className="mt-6 mx-auto max-w-3xl text-center text-lg leading-relaxed text-white/70"
           >
             The fun doesn’t end with just Laser Tag… enjoy arcade games &amp; much more! There is no need to make a reservation to just drop in and have some fun.
@@ -120,7 +132,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: 0.06 * idx }}
+                transition={{ duration: 0.3, delay: 0.04 * idx }}
                 className="rounded-2xl border border-white/10 bg-space-900/68 py-4 neon-border-green transition-all hover:border-neon-green/60 hover:shadow-[0_0_18px_rgba(0,255,159,0.18)]"
               >
                 <div className="font-semibold text-neon-green">{item.label}</div>

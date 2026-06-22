@@ -7,14 +7,17 @@ import { HeroFlowBackground } from "@/components/ui/HeroFlowBackground";
 import { HeroLaserOverlay } from "@/components/ui/HeroLaserOverlay";
 import { BUSINESS } from "@/lib/constants";
 
+const packageTitleSizes: Record<string, string> = {
+  Basic: "text-2xl sm:text-3xl",
+  Supreme: "text-3xl sm:text-4xl",
+  Ultimate: "text-4xl sm:text-5xl",
+};
+
 const packages = [
   {
     name: "Basic",
-    price: 250,
-    priceNote: "Mon to Thu",
-    weekdayPrice: null,
     perPerson: 25,
-    perPersonNote: "Mon to Thu",
+    perPersonLabel: "person",
     minGuests: 10,
     popular: false,
     features: [
@@ -27,11 +30,8 @@ const packages = [
   },
   {
     name: "Supreme",
-    price: 300,
-    priceNote: "Fri to Sun",
-    weekdayPrice: 280,
     perPerson: 30,
-    perPersonNote: "Fri to Sun • $28 Mon to Thu",
+    perPersonLabel: "player",
     minGuests: 10,
     popular: false,
     features: [
@@ -45,11 +45,8 @@ const packages = [
   },
   {
     name: "Ultimate",
-    price: 400,
-    priceNote: "Fri to Sun",
-    weekdayPrice: 380,
     perPerson: 40,
-    perPersonNote: "Fri to Sun • $38 Mon to Thu",
+    perPersonLabel: "player",
     minGuests: 10,
     popular: true,
     features: [
@@ -141,15 +138,15 @@ export default function BirthdayPartiesPage() {
           <div className="text-center mb-10">
             <p className="uppercase tracking-[3px] text-xs text-neon-green">Choose Your Package</p>
             <h2 className="mt-2 text-4xl font-bold tracking-tight">Birthday Party Packages</h2>
-            <p className="text-white/60 mt-2">All packages include 2 laser tag missions + 2 hour private room. Weekend (Fri to Sun) pricing shown first for Supreme &amp; Ultimate packages.</p>
+            <p className="text-white/60 mt-2">All packages include 2 laser tag missions + 2 hour private room. Weekend (Fri to Sun) pricing shown — minimum 10 guests required.</p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-6">
+          <div className="grid lg:grid-cols-3 gap-6 items-stretch">
             {packages.map((pkg, index) => (
               <motion.div
                 key={index}
                 whileHover={{ y: -6 }}
-                className={`relative flex flex-col rounded-3xl border p-8 transition-all ${pkg.popular
+                className={`relative flex h-full flex-col rounded-3xl border p-8 transition-all ${pkg.popular
                   ? "border-neon-green bg-space-900/92 shadow-[0_0_0_1px_rgba(0,255,159,0.45)] box-glow-green"
                   : "border-white/10 bg-space-900/78"}`}
               >
@@ -159,26 +156,38 @@ export default function BirthdayPartiesPage() {
                   </div>
                 )}
 
-                <div>
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-5xl font-bold tabular-nums tracking-[-2px]">${pkg.price}</span>
-                    <span className="text-white/60">/ {pkg.priceNote}</span>
+                <div className="absolute -top-3 left-6 rounded-xl border border-neon-magenta/50 bg-neon-magenta/15 px-3 py-1.5 text-center shadow-[0_0_20px_rgba(255,0,255,0.15)] backdrop-blur-sm">
+                  <div className="text-sm font-bold leading-none text-neon-magenta">$50 OFF</div>
+                  <div className="mt-0.5 text-[10px] leading-tight text-white/70">Book Mon to Thu</div>
+                </div>
+
+                <h3
+                  className={`mt-2 text-center font-bold tracking-tight heading-display ${packageTitleSizes[pkg.name]} ${pkg.popular
+                    ? "bg-gradient-to-r from-neon-cyan via-neon-green to-neon-lime bg-clip-text text-transparent text-glow-green"
+                    : "text-neon-green text-glow-green-static"}`}
+                >
+                  {pkg.name}
+                </h3>
+
+                <p className="mt-3 text-center text-xs text-neon-lime">{pkg.highlight}</p>
+
+                <div className="mt-6">
+                  <div className="flex items-baseline gap-x-2 gap-y-1 flex-wrap">
+                    <span className="text-5xl font-bold tabular-nums tracking-[-2px] leading-none">${pkg.perPerson}</span>
+                    <span className="text-sm text-white/60">/ {pkg.perPersonLabel} · Fri to Sun</span>
                   </div>
-                  {pkg.weekdayPrice && (
-                    <div className="text-sm text-white/60 mt-0.5">
-                      ${pkg.weekdayPrice} Mon to Thu
+                  <div className="mt-4 rounded-xl border border-white/10 bg-black/30 px-3 py-2.5">
+                    <div className="text-xs uppercase tracking-[1.5px] text-neon-lime/80">
+                      Minimum {pkg.minGuests} guests
                     </div>
-                  )}
+                    <div className="mt-1 text-sm font-semibold text-white">
+                      Starting at ${pkg.perPerson * pkg.minGuests} for {pkg.minGuests} guests
+                      <span className="font-normal text-white/50"> (Fri to Sun)</span>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="mt-1">
-                  <span className="text-xl font-semibold tracking-tight">{pkg.name}</span>
-                  <span className="ml-2 text-sm text-white/50">(minimum 10 guests)</span>
-                  <div className="text-xs text-neon-lime mt-1">{pkg.highlight}</div>
-                </div>
-
-                <div className="mt-6 space-y-2 text-sm">
-                  {/* Nice tier header above the first bullet (2 hours private party room) */}
+                <div className="mt-6 flex-1 space-y-2 text-sm">
                   {pkg.name !== "Basic" && (
                     <div className="text-xs uppercase tracking-[1.5px] text-neon-lime/70">
                       (Everything in {pkg.name === "Supreme" ? "Basic" : "Supreme"} +)
@@ -186,19 +195,11 @@ export default function BirthdayPartiesPage() {
                   )}
                   {pkg.features.map((f, fi) => (
                     <div key={fi} className="flex items-start gap-2 text-white/80">
-                      <span className="mt-1 block h-1.5 w-1.5 rounded-full bg-neon-cyan/80 flex-none" />
+                      <span className="mt-1.5 block h-1.5 w-1.5 rounded-full bg-neon-cyan/80 flex-none" />
                       {f}
                     </div>
                   ))}
                 </div>
-
-                <div className="mt-auto pt-8 text-xs text-white/50">
-                  ${pkg.perPerson} per additional guest ({pkg.perPersonNote})
-                </div>
-
-                <Button href={BUSINESS.bookUrl} className="mt-6 w-full" variant={pkg.popular ? "primary" : "secondary"}>
-                  Select {pkg.name} Package
-                </Button>
               </motion.div>
             ))}
           </div>

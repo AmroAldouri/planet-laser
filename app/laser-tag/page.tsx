@@ -1,9 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Crosshair, Users, Zap, Trophy, Clock, Shield } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { HeroVideoBackground } from "@/components/ui/HeroVideoBackground";
 import { BUSINESS } from "@/lib/constants";
+import { ARENA_GALLERY } from "@/lib/arena-gallery";
+import { cn } from "@/lib/utils";
 
 const gameModes = [
   {
@@ -24,34 +28,49 @@ const gameModes = [
 ];
 
 const pricing = [
-  { games: "1 Game", price: "$9", note: "+ tax" },
-  { games: "2 Games", price: "$17", note: "+ tax" },
-  { games: "3 Games", price: "$20", note: "+ tax" },
+  { games: "1 Game", price: "$9", note: "+ tax", hint: "Drop in anytime" },
+  { games: "2 Games", price: "$17", note: "+ tax", hint: "Save vs single games" },
+  {
+    games: "2 Games + $10 Arcade Card",
+    price: "$27",
+    note: "+ tax",
+    hint: "1 hour play time",
+    highlight: true,
+  },
 ];
 
 const promos = [
-  { label: "$5 Tuesdays", desc: "Play any single game for just $5 including tax all day Tuesday." },
-  { label: "All You Can Play", desc: "Friday & Saturday 9pm to midnight. Unlimited missions. Limited spots." },
+  { label: "$5 Tuesdays", desc: "Any single game for $5 including tax — all day Tuesday.", accent: "border-neon-cyan/50 bg-neon-cyan/5" },
+  {
+    label: "All You Can Play",
+    desc: "Friday & Saturday • 9:00 PM – Midnight • Unlimited missions",
+    accent: "border-neon-green bg-neon-green/10 box-glow-green",
+    price: "$25",
+  },
 ];
 
 export default function LaserTagPage() {
   return (
     <div className="min-h-screen text-white relative">
       {/* Hero Header */}
-      <div className="relative pt-24 pb-16 sm:pt-28 sm:pb-20 overflow-hidden border-b border-white/10">
-        <div className="absolute inset-0 bg-[radial-gradient(#ffffff10_0.6px,transparent_1px)] bg-[length:4px_4px]" aria-hidden />
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center relative">
-          <div className="inline-flex items-center gap-2 rounded-full border border-neon-green/40 bg-neon-green/10 px-4 py-1 text-xs tracking-[2.5px] text-neon-green mb-4">
+      <div className="relative min-h-[70vh] sm:min-h-[75vh] pt-24 pb-16 sm:pt-28 sm:pb-20 overflow-hidden border-b border-white/10">
+        <HeroVideoBackground
+          src="/laser-tag-hero.mp4"
+          poster="/gallery-arena-1.png"
+        />
+
+        <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-neon-green/40 bg-black/65 px-4 py-1 text-xs tracking-[2.5px] text-neon-green backdrop-blur-sm mb-4">
             MULTI LEVEL • GLOW IN THE DARK
           </div>
 
-          <h1 className="text-5xl sm:text-6xl font-bold tracking-tighter heading-display">
+          <h1 className="hero-photo-title text-5xl sm:text-6xl font-bold tracking-tighter heading-display">
             Laser Tag at<br />
             <span className="bg-gradient-to-r from-neon-green via-neon-lime to-neon-cyan bg-clip-text text-transparent text-glow-green">
               Planet Laser
             </span>
           </h1>
-          <p className="mt-4 text-xl text-white/70 max-w-2xl mx-auto">
+          <p className="hero-photo-subtext mt-4 text-xl max-w-2xl mx-auto">
             Oakville’s most immersive multi level laser tag arena. Fog, lights, sound, and non stop action for every age and skill level.
           </p>
 
@@ -67,9 +86,149 @@ export default function LaserTagPage() {
             </Button>
           </div>
 
-          <p className="mt-6 text-sm text-white/50">Drop ins welcome for small groups • Reservations recommended for 10+</p>
+          <p className="hero-photo-caption mt-6">Drop ins welcome for small groups • Reservations recommended for 10+</p>
         </div>
       </div>
+
+      {/* Pricing — anchored right below hero */}
+      <section className="relative z-20 -mt-10 sm:-mt-14 pb-4" aria-labelledby="laser-pricing-heading">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.45 }}
+            className="overflow-hidden rounded-3xl border border-white/10 bg-space-900/95 shadow-[0_24px_80px_rgba(0,0,0,0.55)] backdrop-blur-md"
+          >
+            <div className="border-b border-white/10 bg-gradient-to-r from-neon-green/10 via-transparent to-neon-purple/10 px-6 py-5 sm:px-8 sm:py-6">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[3px] text-neon-magenta">Play Today</p>
+                  <h2 id="laser-pricing-heading" className="mt-1 text-2xl font-bold tracking-tight sm:text-3xl heading-display">
+                    Game Prices
+                  </h2>
+                  <p className="mt-1.5 text-sm text-white/60">No reservation needed for small groups. Walk in and play.</p>
+                </div>
+                <Button href={BUSINESS.bookUrl} size="sm" className="shrink-0 self-start sm:self-auto">
+                  Book Now
+                </Button>
+              </div>
+            </div>
+
+            <div className="p-6 sm:p-8">
+              <div className="mb-6 flex justify-center">
+                <p className="inline-flex items-center gap-2 rounded-full border border-neon-green/40 bg-neon-green/10 px-5 py-2 text-center text-xs font-semibold uppercase tracking-[0.22em] text-neon-lime sm:text-sm sm:tracking-[0.28em]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-neon-green shadow-[0_0_8px_rgba(0,255,159,0.8)]" aria-hidden />
+                  Games are 15 Minutes
+                  <span className="h-1.5 w-1.5 rounded-full bg-neon-green shadow-[0_0_8px_rgba(0,255,159,0.8)]" aria-hidden />
+                </p>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-3">
+                {pricing.map((tier) => (
+                  <div
+                    key={tier.games}
+                    className={cn(
+                      "relative flex flex-col rounded-2xl border px-5 py-5 transition-colors",
+                      tier.highlight
+                        ? "border-neon-green/55 bg-neon-green/8 box-glow-green"
+                        : "border-white/10 bg-black/35 hover:border-white/20",
+                    )}
+                  >
+                    {tier.highlight && (
+                      <span className="absolute -top-2.5 right-4 rounded-full bg-neon-cyan px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-space-950">
+                        Best Value
+                      </span>
+                    )}
+                    <div className="pr-16 text-sm font-medium leading-snug text-white/70">{tier.games}</div>
+                    <div className="mt-2 flex items-baseline gap-1.5">
+                      <span className="text-4xl font-bold tabular-nums tracking-tight text-neon-green">{tier.price}</span>
+                      <span className="text-sm text-white/45">{tier.note}</span>
+                    </div>
+                    <p className="mt-3 text-xs text-white/45">{tier.hint}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-6 grid gap-4 lg:grid-cols-2">
+                {promos.map((promo) => (
+                  <div
+                    key={promo.label}
+                    className={cn(
+                      "rounded-2xl border p-5 sm:p-6",
+                      promo.accent,
+                      promo.price && "lg:flex lg:items-center lg:justify-between lg:gap-6",
+                    )}
+                  >
+                    <div className={promo.price ? "lg:flex-1" : undefined}>
+                      <div className="text-xs uppercase tracking-[2.5px] text-neon-purple">{promo.label}</div>
+                      <p className="mt-2 text-sm leading-relaxed text-white/75 sm:text-[15px]">{promo.desc}</p>
+                    </div>
+                    {promo.price && (
+                      <div className="mt-4 flex shrink-0 items-center gap-3 lg:mt-0">
+                        <span className="rounded-full border border-neon-green/60 bg-black/40 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-neon-lime">
+                          Only
+                        </span>
+                        <span className="text-4xl font-extrabold tabular-nums text-white text-glow-green sm:text-5xl">
+                          {promo.price}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              <p className="mt-5 text-center text-xs text-white/45">
+                All prices plus tax. Games are non transferable and non refundable. Prices subject to change.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Arena photos */}
+      <section className="py-16 sm:py-20 border-b border-white/10 bg-black/40">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <p className="text-xs uppercase tracking-[3px] text-neon-green">Real Photos</p>
+            <h2 className="mt-2 text-3xl sm:text-4xl font-bold tracking-tight heading-display">Inside the Arena</h2>
+            <p className="mt-3 max-w-lg mx-auto text-white/60">
+              Multi level mazes, themed battle zones, and neon blacklight environments built for non stop missions.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 lg:grid-rows-2 gap-4 lg:gap-5">
+            {ARENA_GALLERY.map((photo, i) => (
+              <motion.figure
+                key={photo.src}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: i * 0.07 }}
+                className={cn(
+                  "neon-frame group relative overflow-hidden rounded-3xl border border-white/10 bg-space-900/78 h-[240px] sm:h-[260px]",
+                  i === 0 && "lg:col-span-7 lg:row-span-2 lg:h-auto lg:min-h-[420px]",
+                  i > 0 && "lg:col-span-5",
+                )}
+              >
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  sizes={i === 0 ? "(max-width: 768px) 100vw, 1200px" : "(max-width: 768px) 100vw, 600px"}
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  style={{ objectPosition: photo.objectPosition }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
+                <figcaption className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+                  <div className="text-base font-semibold text-white">{photo.label}</div>
+                  <p className="mt-1 text-sm text-neon-green/90">{photo.sub}</p>
+                </figcaption>
+              </motion.figure>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* The Experience */}
       <section className="py-16 sm:py-20">
@@ -98,17 +257,29 @@ export default function LaserTagPage() {
             </div>
           </div>
 
-          <div className="relative rounded-3xl border border-white/10 bg-space-900/86 p-8 sm:p-10">
-            <div className="uppercase text-xs tracking-widest text-neon-green mb-3">The Player</div>
-            <h3 className="text-2xl font-semibold">Everyone’s invited.</h3>
-            <p className="mt-3 text-white/70">
-              Beginner or laser legend, our Game Masters make sure you’re comfortable and ready. Play solo, join a team, or go head to head. Move, strategize, and prove your skills.
-            </p>
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-space-900/86">
+            <div className="relative h-[280px] sm:h-[320px]">
+              <Image
+                src="/gallery-arena-2.png"
+                alt="Planet Laser Egyptian themed arena with glowing obelisk and pharaoh murals"
+                fill
+                sizes="(max-width: 1024px) 100vw, 560px"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+            </div>
+            <div className="p-8 sm:p-10">
+              <div className="uppercase text-xs tracking-widest text-neon-green mb-3">The Player</div>
+              <h3 className="text-2xl font-semibold">Everyone’s invited.</h3>
+              <p className="mt-3 text-white/70">
+                Beginner or laser legend, our Game Masters make sure you’re comfortable and ready. Play solo, join a team, or go head to head. Move, strategize, and prove your skills.
+              </p>
 
-            <div className="mt-8 pt-6 border-t border-white/10 text-sm text-white/60 space-y-1">
-              <div>• Ages 5+ recommended (younger players welcome with adult)</div>
-              <div>• Height/weight friendly gear for kids and adults</div>
-              <div>• Full briefing before every game</div>
+              <div className="mt-8 pt-6 border-t border-white/10 text-sm text-white/60 space-y-1">
+                <div>• Ages 5+ recommended (younger players welcome with adult)</div>
+                <div>• Height/weight friendly gear for kids and adults</div>
+                <div>• Full briefing before every game</div>
+              </div>
             </div>
           </div>
         </div>
@@ -166,60 +337,10 @@ export default function LaserTagPage() {
         </div>
       </section>
 
-      {/* Pricing + Promos */}
-      <section className="border-t border-white/10 bg-black/55 py-16 sm:py-20">
+      {/* Bottom CTA */}
+      <section className="border-t border-white/10 bg-black/55 py-14 sm:py-16">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-5 gap-x-10 gap-y-12">
-            {/* Pricing */}
-            <div className="lg:col-span-3">
-              <div>
-                <p className="uppercase text-xs tracking-[3px] text-neon-magenta">Play Today</p>
-                <h2 className="mt-2 text-3xl font-bold tracking-tight">Game Prices</h2>
-                <p className="mt-2 text-white/60">No reservation needed for small groups. Walk in and play.</p>
-              </div>
-
-              <div className="mt-8 space-y-3">
-                {pricing.map((tier, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center justify-between rounded-2xl border border-white/10 bg-space-900/86 px-6 py-5 hover:border-white/25 transition-colors"
-                  >
-                    <div className="font-medium text-lg">{tier.games}</div>
-                    <div className="text-right">
-                      <span className="text-3xl font-semibold tabular-nums tracking-tighter text-neon-green">{tier.price}</span>
-                      <span className="ml-1 text-sm text-white/50">{tier.note}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <p className="mt-4 text-xs text-white/50">All prices plus tax. Games are non transferable and non refundable. Prices subject to change.</p>
-            </div>
-
-            {/* Promos */}
-            <div className="lg:col-span-2">
-              <div className="rounded-3xl border border-white/10 bg-space-900/86 p-8 h-full">
-                <div className="uppercase tracking-[2.5px] text-xs text-neon-purple mb-2">Hot Deals</div>
-                <h3 className="text-2xl font-semibold">Specials &amp; Late Nights</h3>
-
-                <div className="mt-6 space-y-6">
-                  {promos.map((p, idx) => (
-                    <div key={idx} className="border-l-2 border-neon-purple pl-5">
-                      <div className="font-semibold text-lg">{p.label}</div>
-                      <p className="text-white/70 mt-1 text-[15px]">{p.desc}</p>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-8 pt-6 border-t border-white/10 text-sm">
-                  Combine laser tag + arcade for maximum fun. Perfect before or after your birthday party.
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* CTA row */}
-          <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button href={BUSINESS.bookUrl} size="lg" className="sm:min-w-[220px]">
               Reserve Your Mission
             </Button>
@@ -227,13 +348,11 @@ export default function LaserTagPage() {
               Check Out the Arcade
             </Button>
           </div>
+          <p className="mt-8 text-center text-sm text-white/50 max-w-md mx-auto">
+            Our Game Masters are on-site to make sure everyone has a blast, safely. First time? You&apos;ll be a pro in no time.
+          </p>
         </div>
       </section>
-
-      {/* Bottom reassurance */}
-      <div className="py-10 text-center text-sm text-white/50 max-w-md mx-auto px-4">
-        Our Game Masters are on-site to make sure everyone has a blast, safely. First time? You’ll be a pro in no time.
-      </div>
     </div>
   );
 }

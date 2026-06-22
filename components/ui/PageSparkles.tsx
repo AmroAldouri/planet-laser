@@ -1,4 +1,4 @@
-const SPARKLE_COUNT = 68;
+const SPARKLE_COUNT = 36;
 
 export function PageSparkles() {
   return (

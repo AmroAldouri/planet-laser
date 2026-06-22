@@ -38,7 +38,7 @@ export function HomeHero() {
       <HeroLaserOverlay />
 
       <div className="absolute inset-0 pointer-events-none" aria-hidden>
-        {Array.from({ length: 16 }).map((_, i) => {
+        {Array.from({ length: 8 }).map((_, i) => {
           const left = ((i * 19) + 9) % 96;
           const top = ((i * 31) + 4) % 85;
           const size = 1.5 + (i % 3);
