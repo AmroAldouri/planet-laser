@@ -11,7 +11,7 @@ function TickerItem() {
         ✦
       </span>
       <span className="flex items-center gap-3 text-sm font-bold uppercase tracking-[0.16em] text-neon-green sm:gap-4 sm:text-[15px] sm:tracking-[0.2em]">
-        <span>All You Can Play laser tag every Friday & Saturday</span>
+        <span>All-You-Can-Play Laser Tag every Friday & Saturday</span>
         <span className="text-white/35" aria-hidden>
           •
         </span>
@@ -37,7 +37,7 @@ function TickerItem() {
 
 export function PromoTicker() {
   const ariaLabel =
-    "All You Can Play laser tag every Friday and Saturday, 9:00 PM to Midnight, only $25";
+    "All-You-Can-Play Laser Tag every Friday and Saturday, 9:00 PM to Midnight, only $25";
 
   return (
     <div

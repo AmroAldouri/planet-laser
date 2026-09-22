@@ -74,7 +74,7 @@ export function ServiceCards() {
             Your Mission Starts Here
           </h2>
           <p className="mt-4 text-lg text-white/60">
-            From drop in laser battles to epic birthday bashes and corporate
+            From drop-in laser battles to epic birthday bashes and corporate
             team missions, we&apos;ve got the whole crew covered.
           </p>
         </div>

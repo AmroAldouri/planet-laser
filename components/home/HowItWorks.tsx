@@ -9,14 +9,14 @@ const steps = [
     icon: UserCheck,
     title: "Suit Up",
     description:
-      "Get geared up with your vest and phaser. Our Game Masters will walk you through everything you need to know before you enter the arena. Quick, safe, and fun for first timers and veterans alike.",
+      "Get geared up with your vest and phaser. Our Game Masters will walk you through everything you need to know before you enter the arena. Quick, safe, and fun for first-timers and veterans alike.",
   },
   {
     number: "02",
     icon: Crosshair,
     title: "Game On",
     description:
-      "Step into the glow lit, multi level arena where fog swirls and lights pulse. It’s every player for themselves, or team vs team. Tag opponents, avoid getting hit, and rack up points in an action packed mission.",
+      "Step into the glow-lit, multi-level arena where fog swirls and lights pulse. It’s every player for themselves, or team vs. team. Tag opponents, avoid getting hit, and rack up points in an action-packed mission.",
   },
   {
     number: "03",
@@ -53,7 +53,7 @@ export function HowItWorks() {
             How Laser Tag Works at Planet Laser
           </h2>
           <p className="mt-4 text-lg text-white/60">
-            From zero to full on space warrior in minutes. No experience required.
+            From zero to full-on space warrior in minutes. No experience required.
           </p>
         </div>
 
@@ -90,7 +90,7 @@ export function HowItWorks() {
 
         <div className="mt-10 text-center">
           <p className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-sm text-white/60">
-            Drop ins welcome, no reservation required for small groups
+            Drop-ins welcome; no reservation required for small groups
           </p>
         </div>
       </div>

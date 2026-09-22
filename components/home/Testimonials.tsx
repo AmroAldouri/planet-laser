@@ -16,7 +16,7 @@ const testimonials = [
   },
   {
     quote:
-      "I had my daughter’s birthday party in Planet Laser. I can say it is the best birthday party experience. Every thing ran smoothly, the host and all staff were very very helpful and cooperative. Anything we need they provided to us immediately. I am so glad also that all my daughter’s friends enjoyed so much and were so happy. Thank you Planet Laser.",
+      "I had my daughter’s birthday party at Planet Laser. I can say it is the best birthday party experience. Everything ran smoothly, the host and all staff were very very helpful and cooperative. Anything we need they provided to us immediately. I am so glad also that all my daughter’s friends enjoyed so much and were so happy. Thank you Planet Laser.",
     name: "Riham Abdelhalim",
   },
   {

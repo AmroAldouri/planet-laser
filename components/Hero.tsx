@@ -34,7 +34,7 @@ export function Hero() {
       */}
       <img
         src="/hero-background.svg"
-        alt="Dramatic dark futuristic multi level laser tag arena with intense bright cyber green neon laser beams, excited players in glowing vests, volumetric fog, high energy cinematic atmosphere, Planet Laser Oakville"
+        alt="Dramatic dark futuristic multi-level laser tag arena with intense bright cyber green neon laser beams, excited players in glowing vests, volumetric fog, high-energy cinematic atmosphere, Planet Laser Oakville"
         className="absolute inset-0 w-full h-full object-cover"
         loading="eager"
         fetchPriority="high"

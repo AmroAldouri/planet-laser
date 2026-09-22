@@ -11,13 +11,13 @@ export default function AboutPage() {
 
         <div className="prose prose-invert mt-8 max-w-none text-[17px] leading-relaxed text-white/80">
           <p>
-            Planet Laser is Oakville, Mississauga and Burlington’s ultimate spot for family fun and entertainment. We feature a unique multi level laser tag arena with competitive play maps built for players of all ages and skill levels.
+            Planet Laser is Oakville, Mississauga, and Burlington’s ultimate spot for family fun and entertainment. We feature a unique multi-level laser tag arena with competitive play maps built for players of all ages and skill levels.
           </p>
           <p>
-            For over 20 years we’ve been “THE PLACE” where friends, families, school groups, and coworkers come to disconnect from screens and connect through epic, glow in the dark battles, followed by arcade games and celebrations in our private party rooms.
+            For over 20 years we’ve been “the place” where friends, families, school groups, and coworkers come to disconnect from screens and connect through epic, glow-in-the-dark battles, followed by arcade games and celebrations in our private party rooms.
           </p>
           <p>
-            No reservation is required to drop in and play laser tag or the arcade. For birthday parties, corporate events, or groups of 10 or more we strongly recommend booking ahead so we can prepare the perfect experience (and lock in the best times).
+            No reservation is required to drop in and play laser tag or the arcade. For birthday parties, corporate events, or groups of 10 or more, we strongly recommend booking ahead so we can prepare the perfect experience (and lock in the best times).
           </p>
         </div>
 
@@ -37,7 +37,7 @@ export default function AboutPage() {
             </div>
             <div>
               <div className="font-semibold text-neon-green mb-1">What We’re Known For</div>
-              <div>Multi level laser tag • Birthday parties • Arcade • Corporate team building</div>
+              <div>Multi-level laser tag • Birthday parties • Arcade • Corporate team building</div>
             </div>
           </div>
         </div>

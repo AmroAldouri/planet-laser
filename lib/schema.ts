@@ -48,7 +48,7 @@ export function getLocalBusinessSchema() {
           itemOffered: {
             "@type": "Service",
             name: "Laser Tag",
-            description: "Multi level laser tag arena for all ages.",
+            description: "Multi-level laser tag arena for all ages.",
           },
         },
         {

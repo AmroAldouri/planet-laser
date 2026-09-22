@@ -31,7 +31,7 @@ export function HomeHero() {
     >
       <HeroFlowBackground
         src="/planet-laser-neon.jpg"
-        alt="Planet Laser neon lit arena and signage with vibrant green lighting"
+        alt="Planet Laser neon-lit arena and signage with vibrant green lighting"
         variant="home"
       />
 

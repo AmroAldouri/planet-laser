@@ -22,10 +22,10 @@ const laserBeams = [
 
 // Demo prompt for the Grok Imagine example (cosmic laser tag arena concept)
 const ARENA_GENERATION_PROMPT =
-  "A cinematic wide shot of an epic multi level laser tag arena called Planet Laser. " +
+  "A cinematic wide shot of an epic multi-level laser tag arena called Planet Laser. " +
   "Intense atmospheric fog, powerful neon cyan, magenta, purple and electric blue lighting throughout. " +
   "Players wearing illuminated vests and futuristic phasers battling on multiple glowing platforms. " +
-  "Dramatic laser beams, high energy cosmic dark space theme, reflective floors, ultra detailed, vibrant, " +
+  "Dramatic laser beams, high-energy cosmic dark space theme, reflective floors, ultra detailed, vibrant, " +
   "immersive entertainment photography, 16:9 cinematic composition";
 
 export function Hero() {
@@ -212,7 +212,7 @@ export function Hero() {
         >
           {[
             { value: "20+", label: "Years of Fun" },
-            { value: "Multi Level", label: "Laser Arena" },
+            { value: "Multi-Level", label: "Laser Arena" },
             { value: "All Ages", label: "Family Friendly" },
           ].map((stat) => (
             <div
@@ -271,7 +271,7 @@ export function Hero() {
                   <div className="overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
                     <img
                       src={generatedImage}
-                      alt="AI generated custom multi level laser tag arena concept with neon lighting"
+                      alt="AI-generated custom multi-level laser tag arena concept with neon lighting"
                       className="w-full h-auto object-cover"
                     />
                   </div>

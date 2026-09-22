@@ -13,7 +13,7 @@ const arcadePhotos = [
     src: "/arcade-floor-1.png",
     alt: "Planet Laser arcade floor with cyclone redemption game, prize counter, and neon ARCADE signage",
     label: "Prize Counter & Redemption",
-    sub: "Tickets, prizes & non stop play",
+    sub: "Tickets, prizes, and non-stop play",
     accent: "text-neon-green",
     objectPosition: "center",
   },
@@ -39,29 +39,29 @@ const gameCategories = [
   {
     icon: Gamepad2,
     title: "Classic & Modern Video Games",
-    desc: "Timeless favorites and the latest hits. Racing, shooters, fighters, and more, something for every skill level and age.",
+    desc: "Timeless favorites and the latest hits. Racing, shooters, fighters, and more—something for every skill level and age.",
   },
   {
     icon: Coins,
     title: "Redemption Games",
-    desc: "Ticket blasting favorites like skee ball, basketball hoops, and whack a mole. Rack up tickets and trade them for epic prizes.",
+    desc: "Ticket blasting favorites like Skee-Ball, basketball hoops, and whack-a-mole. Rack up tickets and trade them for epic prizes.",
   },
   {
     icon: Gift,
     title: "Prize Counter",
-    desc: "From small toys and candy to big ticket items. The more you play, the better the haul. Kids go wild for it.",
+    desc: "From small toys and candy to big-ticket items. The more you play, the better the haul. Kids go wild for it.",
   },
 ];
 
 const combos = [
   {
     title: "Laser Tag + Arcade",
-    desc: "Play laser tag missions then load your play card and rack up tickets. The perfect one two punch for any visit.",
+    desc: "Play laser tag missions then load your play card and rack up tickets. The perfect one-two punch for any visit.",
     cta: "Play Laser Tag",
     href: "/laser-tag",
   },
   {
-    title: "Ultimate Birthday Add On",
+    title: "Ultimate Birthday Add-On",
     desc: "The Ultimate package includes 60 arcade credits so every guest gets extra playtime after the missions and pizza.",
     cta: "See Birthday Packages",
     href: "/birthday-parties",
@@ -151,18 +151,19 @@ export default function ArcadePage() {
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <div>
-              <p className="uppercase text-xs tracking-[3px] text-neon-lime">Non Stop Fun</p>
+              <p className="uppercase text-xs tracking-[3px] text-neon-lime">Non-Stop Fun</p>
               <h2 className="mt-2 text-4xl font-bold tracking-tight">Your mission isn’t over when the vest comes off.</h2>
               <p className="mt-5 text-lg text-white/70">
                 Keep the energy going in our bright, buzzing arcade packed with redemption games and crowd-pleasing classics. Whether you’re topping the laser tag leaderboard or just came to play, the arcade delivers instant gratification and serious prize potential.
               </p>
               <div className="mt-6 flex items-center gap-2 text-sm text-white/60">
-                <Users className="h-4 w-4" aria-hidden /> All ages • Card based play • Great for all group sizes
+                <Users className="h-4 w-4" aria-hidden /> All ages • Card-based play • Great for all group sizes
               </div>
             </div>
 
             <div className="rounded-3xl border border-white/10 bg-space-900/86 p-8 text-sm leading-relaxed text-white/75">
-              “The kids crushed laser tag, then spent the next hour winning enough tickets for the giant stuffed prizes. Parents got to relax with coffee while they played. Win win.”, Frequent visitor
+              “The kids crushed laser tag, then spent the next hour winning enough tickets for the giant stuffed prizes. Parents got to relax with coffee while they played. Win-win.”
+              <span className="mt-3 block text-sm text-white/50">— Frequent visitor</span>
             </div>
           </div>
         </div>
@@ -241,7 +242,7 @@ export default function ArcadePage() {
 
       {/* Bottom CTA strip */}
       <div className="py-12 text-center border-t border-white/10">
-        <p className="text-white/80">Drop in today, the games are waiting.</p>
+        <p className="text-white/80">Drop in today—the games are waiting.</p>
         <div className="mt-4">
           <Button href={BUSINESS.phoneHref} size="lg" variant="ghost">
             Call {BUSINESS.phone} for current specials

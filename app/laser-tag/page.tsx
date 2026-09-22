@@ -13,7 +13,7 @@ const gameModes = [
   {
     icon: Crosshair,
     title: "Free for All",
-    desc: "Classic every player for themselves. Highest tags wins. Perfect for showing off your skills.",
+    desc: "Classic every-player-for-themselves. Most tags wins. Perfect for showing off your skills.",
   },
   {
     icon: Users,
@@ -28,13 +28,13 @@ const gameModes = [
 ];
 
 const pricing = [
-  { games: "1 Game", price: "$9", note: "+ tax", hint: "Drop in anytime" },
-  { games: "2 Games", price: "$17", note: "+ tax", hint: "Save vs single games" },
+  { games: "1 Game", price: "$9", note: "+ tax" },
+  { games: "2 Games", price: "$17", note: "+ tax", hint: "Save versus buying single games" },
   {
     games: "2 Games + $10 Arcade Card",
     price: "$27",
     note: "+ tax",
-    hint: "1 hour play time",
+    hint: "1-hour playtime",
     highlight: true,
   },
 ];
@@ -42,7 +42,7 @@ const pricing = [
 const promos = [
   { label: "$5 Tuesdays", desc: "Any single game for $5 including tax — all day Tuesday.", accent: "border-neon-cyan/50 bg-neon-cyan/5" },
   {
-    label: "All You Can Play",
+    label: "All-You-Can-Play",
     desc: "Friday & Saturday • 9:00 PM – Midnight • Unlimited missions",
     accent: "border-neon-green bg-neon-green/10 box-glow-green",
     price: "$25",
@@ -61,7 +61,7 @@ export default function LaserTagPage() {
 
         <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-neon-green/40 bg-black/65 px-4 py-1 text-xs tracking-[2.5px] text-neon-green backdrop-blur-sm mb-4">
-            MULTI LEVEL • GLOW IN THE DARK
+            MULTI-LEVEL • GLOW-IN-THE-DARK
           </div>
 
           <h1 className="hero-photo-title text-5xl sm:text-6xl font-bold tracking-tighter heading-display">
@@ -71,7 +71,7 @@ export default function LaserTagPage() {
             </span>
           </h1>
           <p className="hero-photo-subtext mt-4 text-xl max-w-2xl mx-auto">
-            Oakville’s most immersive multi level laser tag arena. Fog, lights, sound, and non stop action for every age and skill level.
+            Oakville’s most immersive multi-level laser tag arena. Fog, lights, sound, and non-stop action for every age and skill level.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -86,7 +86,7 @@ export default function LaserTagPage() {
             </Button>
           </div>
 
-          <p className="hero-photo-caption mt-6">Drop ins welcome for small groups • Reservations recommended for 10+</p>
+          <p className="hero-photo-caption mt-6">Drop-ins welcome for small groups • Reservations recommended for 10+</p>
         </div>
       </div>
 
@@ -107,7 +107,6 @@ export default function LaserTagPage() {
                   <h2 id="laser-pricing-heading" className="mt-1 text-2xl font-bold tracking-tight sm:text-3xl heading-display">
                     Game Prices
                   </h2>
-                  <p className="mt-1.5 text-sm text-white/60">No reservation needed for small groups. Walk in and play.</p>
                 </div>
                 <Button href={BUSINESS.bookUrl} size="sm" className="shrink-0 self-start sm:self-auto">
                   Book Now
@@ -145,7 +144,9 @@ export default function LaserTagPage() {
                       <span className="text-4xl font-bold tabular-nums tracking-tight text-neon-green">{tier.price}</span>
                       <span className="text-sm text-white/45">{tier.note}</span>
                     </div>
-                    <p className="mt-3 text-xs text-white/45">{tier.hint}</p>
+                    {tier.hint ? (
+                      <p className="mt-3 text-xs text-white/45">{tier.hint}</p>
+                    ) : null}
                   </div>
                 ))}
               </div>
@@ -179,7 +180,7 @@ export default function LaserTagPage() {
               </div>
 
               <p className="mt-5 text-center text-xs text-white/45">
-                All prices plus tax. Games are non transferable and non refundable. Prices subject to change.
+                All prices plus tax. Games are non-transferable and non-refundable. Prices are subject to change.
               </p>
             </div>
           </motion.div>
@@ -193,7 +194,7 @@ export default function LaserTagPage() {
             <p className="text-xs uppercase tracking-[3px] text-neon-green">Real Photos</p>
             <h2 className="mt-2 text-3xl sm:text-4xl font-bold tracking-tight heading-display">Inside the Arena</h2>
             <p className="mt-3 max-w-lg mx-auto text-white/60">
-              Multi level mazes, themed battle zones, and neon blacklight environments built for non stop missions.
+              Multi-level mazes, themed battle zones, and neon blacklight environments built for non-stop missions.
             </p>
           </div>
 
@@ -237,17 +238,17 @@ export default function LaserTagPage() {
             <p className="uppercase tracking-[3px] text-xs text-neon-magenta mb-2">The Arena</p>
             <h2 className="text-4xl font-bold tracking-tight">Step into the battlefield.</h2>
             <p className="mt-5 text-lg text-white/70 leading-relaxed">
-              Our high energy, glow in the dark arena is a multi level battlefield filled with swirling fog, vibrant lights, and immersive sound effects. The atmosphere alone will transport you straight into the action.
+              Our high-energy, glow-in-the-dark arena is a multi-level battlefield filled with swirling fog, vibrant lights, and immersive sound. The atmosphere alone will transport you straight into the action.
             </p>
             <p className="mt-4 text-lg text-white/70 leading-relaxed">
-              Whether you’re playing with friends, family, coworkers or teammates, every round feels fresh and electric.
+              Whether you’re playing with friends, family, coworkers, or teammates, every round feels fresh and electric.
             </p>
 
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
-                { icon: Zap, label: "Multi Level Arena" },
+                { icon: Zap, label: "Multi-Level Arena" },
                 { icon: Shield, label: "Safe for All Ages" },
-                { icon: Clock, label: "15 to 20 min Missions" },
+                { icon: Clock, label: "15-Minute Missions" },
               ].map((f, i) => (
                 <div key={i} className="flex items-center gap-3 rounded-xl border border-white/10 bg-space-900/78 px-4 py-3">
                   <f.icon className="h-5 w-5 text-neon-green" aria-hidden />
@@ -261,7 +262,7 @@ export default function LaserTagPage() {
             <div className="relative h-[280px] sm:h-[320px]">
               <Image
                 src="/gallery-arena-2.png"
-                alt="Planet Laser Egyptian themed arena with glowing obelisk and pharaoh murals"
+                alt="Planet Laser Egyptian-themed arena with glowing obelisk and pharaoh murals"
                 fill
                 sizes="(max-width: 1024px) 100vw, 560px"
                 className="object-cover"
@@ -272,12 +273,12 @@ export default function LaserTagPage() {
               <div className="uppercase text-xs tracking-widest text-neon-green mb-3">The Player</div>
               <h3 className="text-2xl font-semibold">Everyone’s invited.</h3>
               <p className="mt-3 text-white/70">
-                Beginner or laser legend, our Game Masters make sure you’re comfortable and ready. Play solo, join a team, or go head to head. Move, strategize, and prove your skills.
+                Beginner or laser legend, our Game Masters make sure you’re comfortable and ready. Play solo, join a team, or go head-to-head. Move, strategize, and prove your skills.
               </p>
 
               <div className="mt-8 pt-6 border-t border-white/10 text-sm text-white/60 space-y-1">
-                <div>• Ages 5+ recommended (younger players welcome with adult)</div>
-                <div>• Height/weight friendly gear for kids and adults</div>
+                <div>• Ages 5+ recommended (younger players welcome with an adult)</div>
+                <div>• Height- and weight-friendly gear for kids and adults</div>
                 <div>• Full briefing before every game</div>
               </div>
             </div>
@@ -289,7 +290,7 @@ export default function LaserTagPage() {
       <section className="border-y border-white/10 bg-space-900/58 py-16 sm:py-20">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto">
-            <p className="text-neon-purple text-xs tracking-[3px] uppercase">Pro Grade Gear</p>
+            <p className="text-neon-purple text-xs tracking-[3px] uppercase">Pro-Grade Gear</p>
             <h2 className="mt-3 text-3xl font-bold tracking-tight">Built for performance and comfort.</h2>
           </div>
 
@@ -297,14 +298,14 @@ export default function LaserTagPage() {
             {[
               "Lightweight sensor vests with bright LED hit feedback",
               "Precision phasers that register every tag instantly",
-              "Real time scoring synced to the big screens",
+              "Real-time scoring synced to the big screens",
             ].map((text, i) => (
               <div key={i} className="rounded-2xl border border-white/10 p-6 bg-space-950/78 text-white/80">
                 {text}
               </div>
             ))}
           </div>
-          <p className="text-center mt-6 text-sm text-white/50">Safe, comfortable, and designed for non stop action.</p>
+          <p className="text-center mt-6 text-sm text-white/50">Safe, comfortable, and designed for non-stop action.</p>
         </div>
       </section>
 

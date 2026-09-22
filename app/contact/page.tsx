@@ -12,7 +12,7 @@ export default function ContactPage() {
           <p className="uppercase tracking-[3px] text-xs text-neon-green">We’re Here to Help</p>
           <h1 className="mt-3 text-5xl font-bold tracking-tighter heading-display">Let’s Get Your Mission Booked</h1>
           <p className="mt-4 text-xl text-white/70 max-w-lg mx-auto">
-            Drop ins welcome for laser tag and arcade. For parties, groups of 10+, and corporate events, reservations are recommended.
+            Drop-ins welcome for laser tag and arcade. For parties, groups of 10+, and corporate events, reservations are recommended.
           </p>
         </div>
 
@@ -20,7 +20,7 @@ export default function ContactPage() {
           {/* Booking Info / Form area */}
           <div className="lg:col-span-3 rounded-3xl border border-white/10 bg-space-900/86 p-8 sm:p-10">
             <h2 id="book" className="text-2xl font-semibold tracking-tight">Request Your Booking</h2>
-            <p className="text-sm text-white/60 mt-1">We’ll confirm within a few hours. Or call us for same day availability.</p>
+            <p className="text-sm text-white/60 mt-1">We’ll confirm within a few hours, or call us for same-day availability.</p>
 
             {/* Simple visual form (non-functional for demo) */}
             <form
@@ -65,7 +65,7 @@ export default function ContactPage() {
                   <Phone className="mt-0.5 h-5 w-5 text-neon-green group-hover:scale-110 transition" />
                   <div>
                     <div className="font-medium">{BUSINESS.phone}</div>
-                    <div className="text-white/50">Call for same day laser tag</div>
+                    <div className="text-white/50">Call for same-day laser tag</div>
                   </div>
                 </a>
 

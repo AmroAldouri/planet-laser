@@ -107,7 +107,7 @@ export default function Home() {
             transition={{ duration: 0.4, delay: 0.05 }}
             className="mt-8 mx-auto max-w-3xl text-center text-lg leading-relaxed text-white/70"
           >
-            Planet Laser is Oakville, Mississauga and Burlington’s ultimate spot for family fun and entertainment, featuring a unique multi level laser tag arena and competitive play map. Planet Laser is “THE PLACE” to engage interactively with your friends and family.
+            Planet Laser is Oakville, Mississauga, and Burlington’s go-to spot for family fun, with a unique multi-level laser tag arena and competitive play maps. Planet Laser is “the place” to play with friends and family.
           </motion.div>
 
           <motion.div
@@ -117,14 +117,14 @@ export default function Home() {
             transition={{ duration: 0.4, delay: 0.12 }}
             className="mt-6 mx-auto max-w-3xl text-center text-lg leading-relaxed text-white/70"
           >
-            The fun doesn’t end with just Laser Tag… enjoy arcade games &amp; much more! There is no need to make a reservation to just drop in and have some fun.
+            The fun doesn’t stop at laser tag. Enjoy arcade games and more—no reservation needed to drop in.
           </motion.div>
 
           <div className="mt-10 grid grid-cols-2 gap-4 text-center sm:grid-cols-4">
             {[
-              { label: "Multi Level Arena", sub: "Glow in the dark battles" },
+              { label: "Multi-Level Arena", sub: "Glow-in-the-dark battles" },
               { label: "All Ages Welcome", sub: "Kids, teens, adults & groups" },
-              { label: "Drop in Friendly", sub: "No reservation required" },
+              { label: "Drop-In Friendly", sub: "No reservation required" },
               { label: "20+ Years", sub: "Creating epic memories" },
             ].map((item, idx) => (
               <motion.div

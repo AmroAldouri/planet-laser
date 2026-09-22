@@ -16,7 +16,7 @@ export function Footer() {
               <PlanetLaserMark variant="compact" className="h-8 w-auto transition-transform group-hover:scale-[1.015]" />
             </Link>
             <p className="mt-4 max-w-[18ch] text-white/60 leading-relaxed">
-              Oakville’s ultimate laser tag, arcade &amp; party destination. Serving families across the GTA since 2005.
+              Oakville’s ultimate laser tag, arcade, and party destination. Serving families across the GTA since 2005.
             </p>
             <div className="mt-4 flex gap-3 text-white/40">
               <a href="https://www.instagram.com/planetlaser" target="_blank" rel="noopener noreferrer" className="hover:text-neon-green transition-colors" aria-label="Instagram">
